@@ -20,13 +20,6 @@ This package is a template that let's you generate an example boilerplate app wi
 | Forms         | React-Hook-Form   |
 | HTTP          | Axios             |
 
-
-
-* Redux setup (based on Redux Toolkit)
-* Routing (React Router)
-* Styled Components
-* Design (ANT Design)
-
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
 
 ## Contribution
