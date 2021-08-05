@@ -4,6 +4,7 @@ import {ThemeProvider} from 'styled-components';
 import {BrowserRouter} from 'react-router-dom';
 import styled from 'styled-components';
 import {Provider} from 'react-redux';
+import {IntlProvider} from 'react-intl';
 import theme from './theme';
 import Header from './components/Header';
 import Menu from './components/Menu';
@@ -20,14 +21,16 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Provider store={store}>
-                        <Header/>
-                        <Layout>
-                            <Menu/>
-                            <MainContent>
-                                <Router/>
-                                <Footer>Created by @Crustlab with ❤️</Footer>
-                            </MainContent>
-                        </Layout>
+                        <IntlProvider locale="en">
+                            <Header/>
+                            <Layout>
+                                <Menu/>
+                                <MainContent>
+                                    <Router/>
+                                    <Footer>Created with ❤️ by CrustLab️</Footer>
+                                </MainContent>
+                            </Layout>
+                        </IntlProvider>
                     </Provider>
                 </BrowserRouter>
             </ThemeProvider>

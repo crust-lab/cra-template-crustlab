@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Spin} from 'antd';
 import {useAppDispatch, useAppSelector} from '../../helpers/hooks';
-import {getMovies, isLoading, selectMovies} from '../../modules/movies/movies';
+import {getMovies, isLoading, selectMovies} from '../../modules/movies/slice';
 import MoviesList from './components/MoviesList';
 
 
