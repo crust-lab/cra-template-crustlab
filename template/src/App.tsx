@@ -27,7 +27,7 @@ const App = () => {
                                 <Menu/>
                                 <MainContent>
                                     <Router/>
-                                    <Footer>Created with ❤️ by CrustLab️</Footer>
+                                    <Footer>Created with ❤️ by CrustLab</Footer>
                                 </MainContent>
                             </Layout>
                         </IntlProvider>

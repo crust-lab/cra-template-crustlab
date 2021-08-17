@@ -1,74 +1,83 @@
 import React from 'react';
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import {DevTool} from '@hookform/devtools';
-import {Button} from 'antd';
+import {Form, Input, Checkbox, Button, Row, Col} from 'antd';
 import {useIntl, FormattedMessage} from 'react-intl';
 import messages from './messages';
-import BasicInput from '../../components/form/inputs/BasicInput';
-import TextArea from '../../components/form/inputs/TextArea';
-import Checkbox from '../../components/form/Checkbox';
 
 type FormValues = {
     firstName: string;
     description: string;
     agreement: boolean;
-    website: string;
 }
-
-const ContactSchema = yup.object().shape({
-    firstName: yup.string().required(),
-    description: yup.string(),
-    agreement: yup.bool().required().oneOf([true], 'Field must be checked'),
-    website: yup.string().url()
-});
 
 const Contact = () => {
     const {formatMessage: f} = useIntl();
-
-    const {handleSubmit, formState: {errors}, control} = useForm<FormValues>({
-        resolver: yupResolver(ContactSchema),
-        mode: 'onChange'
-    });
+    const [form] = Form.useForm();
 
     const onSubmit = (data: FormValues) => {
         console.log('Result: ', JSON.stringify(data));
     };
 
     return (
-        <>
-            <DevTool control={control} placement="top-right" />
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <BasicInput
-                    label={f(messages.contactPageFirstName)}
-                    name="firstName"
-                    control={control}
-                    errors={errors}
-                    placeholder="First Name"
-                />
-                <TextArea
-                    label={f(messages.contactPageDescription)}
-                    name="description"
-                    control={control}
-                    errors={errors}
-                    placeholder="Description"
-                />
-                <Checkbox
-                    label={f(messages.contactPageAgreement)}
-                    name="agreement"
-                    control={control}
-                    errors={errors}
-                />
-                <Button type="primary" htmlType="submit">
-                    <FormattedMessage
-                        id="button.send"
-                        defaultMessage="Send"
-                    />
-                </Button>
-            </form>
-        </>
+        <Row justify="center">
+            <Col sm={16}>
+                <Form
+                    form={form}
+                    name="Contact"
+                    onFinish={onSubmit}
+                    scrollToFirstError
+                >
+                    <Form.Item
+                        name="firstName"
+                        label={f(messages.contactPageFirstName)}
+                        rules={[
+                            {
+                                required: true,
+                                message: f(messages.contactPageFirstNameRequired)
+                            }
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        name="description"
+                        label={f(messages.contactPageDescription)}
+                        rules={[
+                            {
+                                required: true,
+                                message: f(messages.contactPageDescriptionRequired)
+                            }
+                        ]}
+                    >
+                        <Input.TextArea />
+                    </Form.Item>
+                    <Form.Item
+                        name="agreement"
+                        valuePropName="checked"
+                        rules={[
+                            {
+                                validator: (_, value) =>
+                                    value ? Promise.resolve() : Promise.reject(new Error(f(messages.contactPageAgreementRequired)))
+                            }
+                        ]}
+                    >
+                        <Checkbox>
+                            <FormattedMessage
+                                id="contact.form.agreement"
+                                defaultMessage={f(messages.contactPageAgreement)}
+                            />
+                        </Checkbox>
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">
+                            <FormattedMessage
+                                id="contact.form.sendButton"
+                                defaultMessage={f(messages.contactPageSendButton)}
+                            />
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </Col>
+        </Row>
     );
 };
 
