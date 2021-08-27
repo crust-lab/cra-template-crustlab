@@ -11,23 +11,33 @@ npx create-react-app my-app --template crustlab
 ## Description
 This package is a template that let's you generate an example boilerplate app with bunch of included libraries. The app take care of the following features:
 
-| Feature       | Library           |
-| ------------- |:-----------------:|
-| Global Store  | Redux (Toolkit)   | 
-| Routing       | React Router      |
-| Styling       | Styled Components |
-| Design System | ANT Design        |
-| Forms         | React-Hook-Form   |
-| HTTP          | Axios             |
-
-
-
-* Redux setup (based on Redux Toolkit)
-* Routing (React Router)
-* Styled Components
-* Design (ANT Design)
+| Feature              | Library           |
+| -------------------- |:-----------------:|
+| Global Store         | Redux (Toolkit)   | 
+| Routing              | React Router      |
+| Styling              | Styled Components |
+| Design System        | ANT Design        |
+| Forms                | React-Hook-Form   |
+| HTTP                 | Axios             |
+| Internationalization | React-Intl        |
 
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
+
+## Internationalization
+
+The app is adjusted to multiple language versions thanks to React-Intl.
+
+### Extracting and compiling messages
+
+In order to extract messages from the code use below command:
+
+> yarn messages:extract
+
+Above command creates __lang/pl.json__ file with polish messages. Compare newly generated file with the content of __lang/en.json__ file (in case of any differences remove/add missing translations to __lang/en.json__ file).
+
+Transform messages into AST to improve app performance:
+
+> yarn messages:compile
 
 ## Contribution
 
