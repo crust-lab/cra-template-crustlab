@@ -61,18 +61,12 @@ const Contact = () => {
                         ]}
                     >
                         <Checkbox>
-                            <FormattedMessage
-                                id="contact.form.agreement"
-                                defaultMessage={f(messages.contactPageAgreement)}
-                            />
+                            {f(messages.contactPageAgreement)}
                         </Checkbox>
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit">
-                            <FormattedMessage
-                                id="contact.form.sendButton"
-                                defaultMessage={f(messages.contactPageSendButton)}
-                            />
+                            {f(messages.contactPageSendButton)}
                         </Button>
                     </Form.Item>
                 </Form>

@@ -23,6 +23,22 @@ This package is a template that let's you generate an example boilerplate app wi
 
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
 
+## Internationalization
+
+The app is adjusted to multiple language versions thanks to React-Intl.
+
+### Extracting and compiling messages
+
+In order to extract messages from the code use below command:
+
+> yarn messages:extract
+
+Above command creates __lang/pl.json__ file with polish messages. Compare newly generated file with the content of __lang/en.json__ file (in case of any differences remove/add missing translations to __lang/en.json__ file).
+
+Transform messages into AST to improve app performance:
+
+> yarn messages:compile
+
 ## Contribution
 
 Feel free to add some value to the template either by sending an issue or creating a PR (the second option is prefered).

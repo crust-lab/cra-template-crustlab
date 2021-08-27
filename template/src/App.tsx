@@ -11,7 +11,18 @@ import Menu from './components/Menu';
 import Router from './Router';
 import {store} from './store';
 
+import EnglishTranslations from './compiled-lang/en.json';
+import PolishTranslations from './compiled-lang/pl.json';
+
 import './App.css';
+
+const lang = navigator.language;
+
+let messages = EnglishTranslations;
+
+if (lang === 'pl') {
+    messages = PolishTranslations;
+}
 
 const {Footer, Content} = Layout;
 
@@ -21,7 +32,7 @@ const App = () => {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Provider store={store}>
-                        <IntlProvider locale="en">
+                        <IntlProvider locale={lang} messages={messages} defaultLocale="en">
                             <Header/>
                             <Layout>
                                 <Menu/>
