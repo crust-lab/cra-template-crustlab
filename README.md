@@ -33,11 +33,21 @@ In order to extract messages from the code use below command:
 
 > yarn messages:extract
 
-Above command creates __lang/pl.json__ file with polish messages. Compare newly generated file with the content of __lang/en.json__ file (in case of any differences remove/add missing translations to __lang/en.json__ file).
+Above command creates __lang/en.json__ file with english messages. Compare newly generated file with the content of __lang/pl.json__ file (in case of any differences remove/add missing translations to __lang/pl.json__ file).
 
 Transform messages into AST to improve app performance:
 
 > yarn messages:compile
+
+### How can I add support for more languages?
+
+1. Create a new file e.g. __fr.json__ in __lang__ directory.
+2. Modify package.json file and add the script responsible for building AST based on newly created json file ("scripts" section):
+
+> formatjs compile src/lang/fr.json --ast --out-file src/compiled-lang/fr.json
+
+3. Modify package.json file and extend the "compile:messages" script. ("scripts" section)
+4. Import new compile language file in App.tsx.
 
 ## Contribution
 
