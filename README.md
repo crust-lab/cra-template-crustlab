@@ -17,7 +17,7 @@ This package is a template that let's you generate an example boilerplate app wi
 | Routing              | React Router      |
 | Styling              | Styled Components |
 | Design System        | ANT Design        |
-| Forms                | React-Hook-Form   |
+| Forms                | ANT Design        |
 | HTTP                 | Axios             |
 | Internationalization | React-Intl        |
 
