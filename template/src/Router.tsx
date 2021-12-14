@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 import {Spin} from 'antd';
 
@@ -28,7 +28,7 @@ const routesConfig = [
 
 const Router = () => (
     <Suspense fallback={<Spin />}>
-        <Switch>
+        <Routes>
             {
                 routesConfig.map(({path, title, element, ...rest}) =>
                     <Route key={path} path={path} element={
@@ -39,7 +39,7 @@ const Router = () => (
                     } {...rest} />
                 )
             }
-        </Switch>
+        </Routes>
     </Suspense>
 );
 
