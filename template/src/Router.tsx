@@ -1,5 +1,5 @@
 import React, {Suspense} from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 import {Spin} from 'antd';
 
@@ -12,35 +12,34 @@ const routesConfig = [
     {
         path: '/',
         title: 'Movies',
-        component: <MoviesPage/>,
-        exact: true
+        element: <MoviesPage/>,
     },
     {
         path: '/contact',
         title: 'Contact',
-        component: <ContactPage/>
+        element: <ContactPage/>
     },
     {
         path: '*',
         title: 'Page Not Found',
-        component: <NotFoundPage/>
+        element: <NotFoundPage/>
     }
 ];
 
 const Router = () => (
     <Suspense fallback={<Spin />}>
-        <Switch>
+        <Routes>
             {
-                routesConfig.map(({path, title, component, ...rest}) =>
-                    <Route key={path} path={path} {...rest}>
+                routesConfig.map(({path, title, element, ...rest}) =>
+                    <Route key={path} path={path} element={
                         <ContentWrapper>
                             <PageTitleWrapper>{title}</PageTitleWrapper>
-                            {component}
+                            {element}
                         </ContentWrapper>
-                    </Route>
+                    } {...rest} />
                 )
             }
-        </Switch>
+        </Routes>
     </Suspense>
 );
 

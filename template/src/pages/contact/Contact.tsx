@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Input, Checkbox, Button, Row, Col} from 'antd';
-import {useIntl, FormattedMessage} from 'react-intl';
+import {useIntl} from 'react-intl';
 import messages from './messages';
 
 type FormValues = {
