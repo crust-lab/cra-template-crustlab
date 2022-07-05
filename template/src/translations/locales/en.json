@@ -1,0 +1,35 @@
+{
+  "translation": {
+    "homePage": {
+      "title": "Hello Vite + React!"
+    },
+    "rickyPage": {
+      "title": "Rick and Morty Page!"
+    },
+    "loginPage": {
+      "title": "Login Page!"
+    },
+    "protectedPage": {
+      "title": "Protected Page!"
+    },
+    "navigation": {
+      "home": "Home",
+      "rickAndMorty": "Rick and Morty",
+      "protected": "Protected"
+    },
+    "languageChange": {
+      "language": "Language",
+      "eng": "ENG",
+      "pl": "PL"
+    },
+    "auth": {
+      "isUserAuthorised": "User authorised",
+      "goToLogin": "Go to Login",
+      "logout": "Logout"
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidEmail": "This email address is invalid"
+    }
+  }
+}
