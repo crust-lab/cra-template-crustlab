@@ -12,16 +12,16 @@ npx create-react-app my-app --template crustlab
 
 This package is a template that let's you generate an example boilerplate app with bunch of included libraries. The app take care of the following features:
 
-| Feature                 |        Library        |
-| ----------------------- | :-------------------: |
-| Global Store            |    Redux (Toolkit)    |
-| Routing                 |    React Router v6    |
-| Styling                 |   Styled Components   |
-| Design System           |      ANT Design       |
-| Forms                   |    React Form Hook    |
-| Internationalization    |     React-i18next     |
-| Testing                 | React Testing Library |
-| Components documetation |       Storybook       |
+| Feature                  |        Library        |
+| ------------------------ | :-------------------: |
+| Global Store             |    Redux (Toolkit)    |
+| Routing                  |    React Router v6    |
+| Styling                  |   Styled Components   |
+| Design System            |      ANT Design       |
+| Forms                    |    React Form Hook    |
+| Internationalization     |     React-i18next     |
+| Testing                  | React Testing Library |
+| Components documentation |       Storybook       |
 
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
 
