@@ -1,5 +1,6 @@
+import React from 'react';
 import { Card, TitleH4 } from '../components/common';
-import RickyCharactersList from '../components/ricky-characters/ricky-characters-list';
+import RickyCharactersList from '../components/rickyCharacters/RickyCharactersList';
 import { useTranslation } from 'react-i18next';
 
 const RickyPage = () => {

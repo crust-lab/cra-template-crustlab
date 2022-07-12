@@ -1,9 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
+import {
+  DEFAULT_LANGUAGE,
+  LanguageOptions,
+  TFunctionArgumentType,
+} from '../translations/i18n';
 
 type LanguageSwitchOption = {
   value: LanguageOptions;
-  labelTranslation: string;
+  labelTranslation: TFunctionArgumentType;
 };
 
 const useLanguageChange = () => {
@@ -22,13 +26,9 @@ const useLanguageChange = () => {
     },
   ];
 
-  const handleLangChange = (value: LanguageOptions) =>
-    i18n.changeLanguage(value);
-
   return {
     defaultLangVal,
     languageSwitchOptions,
-    handleLangChange,
   };
 };
 

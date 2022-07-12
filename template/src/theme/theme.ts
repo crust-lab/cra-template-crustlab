@@ -4,6 +4,7 @@ const styledTheme: DefaultTheme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
+    red: '#FF0000',
     gray: '#E5E5E5',
     blue: '#0096FF',
   },

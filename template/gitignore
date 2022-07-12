@@ -1,14 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+
 /node_modules
 /.pnp
 .pnp.js
 
 # testing
+
 /coverage
 
 # production
+
 /build
 
 # Webstorm files
@@ -16,6 +19,7 @@
 .idea
 
 # misc
+
 .DS_Store
 .env.local
 .env.development.local
@@ -24,15 +28,17 @@
 
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+yarn-error.log\*
 
 # Visual Code Studio files
-.vscode/*
+
+.vscode/_
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
+_.code-workspace
 
 # Local History for Visual Studio Code
+
 .history/
