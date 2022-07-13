@@ -1,31 +1,31 @@
 import React from 'react';
-import {Layout} from 'antd';
-import {ThemeProvider} from 'styled-components';
-import {BrowserRouter} from 'react-router-dom';
+import { Layout } from 'antd';
+import { ThemeProvider } from 'styled-components';
+import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import theme from './theme/theme';
 import Router from './router/Router';
-import {store} from './store/store';
+import { store } from './store/store';
 
 import './App.css';
 
 const App = () => {
-    return (
-        <AppLayout>
-            <ThemeProvider theme={theme}>
-                <BrowserRouter>
-                    <Provider store={store}>
-                        <Router />
-                    </Provider>
-                </BrowserRouter>
-            </ThemeProvider>
-        </AppLayout>
-    );
+  return (
+    <AppLayout>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Router />
+          </Provider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </AppLayout>
+  );
 };
 
 const AppLayout = styled(Layout)`
-    min-height: 100vh;
+  min-height: 100vh;
 `;
 
 export default App;

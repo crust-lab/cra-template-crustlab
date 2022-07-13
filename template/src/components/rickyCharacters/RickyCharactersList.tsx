@@ -1,4 +1,5 @@
-import { useGetAllCharactersQuery } from '../../services/ricky-api/ricky-api';
+import React from 'react';
+import { useGetAllCharactersQuery } from '../../services/rickyApi/rickyApi';
 import { Avatar, Image, Skeleton, Typography } from 'antd';
 import styled from 'styled-components';
 

@@ -1,7 +1,9 @@
-import { routerPaths } from '../../router/router-paths';
-import NavLink, { NavLinkProps } from '../../components/navigation/nav-link';
+import React from 'react';
+import { routerPaths } from '../../router/routerPaths';
+import NavLink, { NavLinkProps } from './NavLink';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import UserInfo from '../userInfo/UserInfo';
 
 const NavBar = () => {
   const { t } = useTranslation();
@@ -11,6 +13,14 @@ const NavBar = () => {
       label: t('navigation.home'),
       to: routerPaths.home,
     },
+    {
+      label: t('navigation.rickAndMorty'),
+      to: routerPaths.rickAndMorty,
+    },
+    {
+      label: t('navigation.protected'),
+      to: routerPaths.protected,
+    },
   ];
 
   return (
@@ -18,6 +28,7 @@ const NavBar = () => {
       {navLinks.map((link) => (
         <NavLink key={link.label} {...link} />
       ))}
+      <UserInfo />
     </NavContainer>
   );
 };

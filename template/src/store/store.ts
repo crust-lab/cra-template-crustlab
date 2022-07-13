@@ -11,22 +11,26 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { rickyApi } from '../services/ricky-api/ricky-api';
+import { rickyApi } from '../services/rickyApi/rickyApi';
+import { authApi } from '../services/authApi/authApi';
+import authReducer, { authReducerPath } from './reducers/auth/authSlice';
 
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  whitelist: [rickyApi.reducerPath],
+  whitelist: [authReducerPath],
+  blacklist: [rickyApi.reducerPath, authApi.reducerPath],
 };
 
 const appReducer = combineReducers({
   [rickyApi.reducerPath]: rickyApi.reducer,
+  [authApi.reducerPath]: authApi.reducer,
+  [authReducerPath]: authReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, appReducer);
-const middlewares = [rickyApi.middleware]
-
+const middlewares = [rickyApi.middleware];
 
 export const store = configureStore({
   reducer: persistedReducer,

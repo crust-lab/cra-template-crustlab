@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import rickyApiPaths from './ricky-api-paths';
-import { CharactersResponse } from './ricky-api-types';
+import rickyApiPaths from './rickyApiPaths';
+import { CharactersResponse } from './rickyApiTypes';
 import { fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 enum Tags {

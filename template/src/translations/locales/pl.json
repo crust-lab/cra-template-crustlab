@@ -1,35 +1,38 @@
 {
-  "translation": {
-    "homePage": {
-      "title": "Cześć Vite + React!"
-    },
-    "rickyPage": {
-      "title": "Strona Rick and Morty!"
-    },
-    "loginPage": {
-      "title": "Strona Logowania!"
-    },
-    "protectedPage": {
-      "title": "Strona Chroniona!"
-    },
-    "navigation": {
-      "home": "Strona Główna",
-      "rickAndMorty": "Rick and Morty",
-      "protected": "Strona Chroniona"
-    },
-    "languageChange": {
-      "language": "Język",
-      "eng": "ENG",
-      "pl": "PL"
-    },
-    "auth": {
-      "isUserAuthorised": "Użytkownik zalogowany",
-      "goToLogin": "Przejdz do logowania",
-      "logout": "Wyloguj"
-    },
-    "validation": {
-      "required": "To pole jest wymagane",
-      "invalidEmail": "Niepoprawny adres email"
-    }
+  "homePage": {
+    "title": "Hej..."
+  },
+  "rickyPage": {
+    "title": "Strona Rick and Morty!"
+  },
+  "loginPage": {
+    "title": "Strona Logowania!",
+    "emailLabel": "Adres email",
+    "passwordLabel": "Hasło",
+    "rememberMeLabel": "Zapamiętaj mnie",
+    "submit": "Wyślij"
+  },
+  "protectedPage": {
+    "title": "Strona Chroniona!"
+  },
+  "navigation": {
+    "home": "Strona Główna",
+    "rickAndMorty": "Rick and Morty",
+    "protected": "Strona Chroniona"
+  },
+  "languageChange": {
+    "language": "Język",
+    "eng": "ENG",
+    "pl": "PL"
+  },
+  "auth": {
+    "isUserAuthorised": "Użytkownik zalogowany",
+    "goToLogin": "Przejdz do logowania",
+    "logout": "Wyloguj"
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "invalidEmail": "Niepoprawny adres email",
+    "incorrectEmailOrPassword": "Niepoprawny adres email lub hasło"
   }
 }

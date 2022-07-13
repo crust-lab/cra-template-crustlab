@@ -9,45 +9,53 @@ npx create-react-app my-app --template crustlab
 ```
 
 ## Description
+
 This package is a template that let's you generate an example boilerplate app with bunch of included libraries. The app take care of the following features:
 
-| Feature              | Library           |
-| -------------------- |:-----------------:|
-| Global Store         | Redux (Toolkit)   | 
-| Routing              | React Router      |
-| Styling              | Styled Components |
-| Design System        | ANT Design        |
-| Forms                | ANT Design        |
-| HTTP                 | Axios             |
-| Internationalization | React-Intl        |
+| Feature                  |            Library             |
+| ------------------------ | :----------------------------: |
+| Global Store             |        Redux (Toolkit)         |
+| Routing                  |        React Router v6         |
+| Styling                  |       Styled Components        |
+| Design System            |           ANT Design           |
+| Forms                    | React Hook Form and ANT Design |
+| Internationalization     |         React-i18next          |
+| Testing                  |     React Testing Library      |
+| Components documentation |           Storybook            |
 
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
 
 ## Internationalization
 
-The app is adjusted to multiple language versions thanks to React-Intl.
+The app is adjusted to multiple language versions thanks to React-i18next.
 
 ### Extracting and compiling messages
 
 In order to extract messages from the code use below command:
 
-> yarn messages:extract
+> npm run generate-messages
 
-Above command creates __lang/en.json__ file with english messages. Compare newly generated file with the content of __lang/pl.json__ file (in case of any differences remove/add missing translations to __lang/pl.json__ file).
-
-Transform messages into AST to improve app performance:
-
-> yarn messages:compile
+Above command creates **lang/en.json** file with english messages. Compare newly generated file with the content of **lang/pl.json** file (in case of any differences remove/add missing translations to **lang/pl.json** file).
 
 ### How can I add support for more languages?
 
-1. Create a new file e.g. __fr.json__ in __lang__ directory.
-2. Modify package.json file and add the script responsible for building AST based on newly created json file ("scripts" section):
+1. Create a new file e.g. **fr.json** in **lang** directory.
+2. Modify configure **i18n.ts** file, import new translation file and add to resources array.
 
-> formatjs compile src/lang/fr.json --ast --out-file src/compiled-lang/fr.json
+## Testing
 
-3. Modify package.json file and extend the "compile:messages" script. ("scripts" section)
-4. Import new compile language file in App.tsx.
+To run all the tests, use the previously created command :
+
+> npm run test
+
+This command will find and execute all files containing RTL tests, that is, those files that contain the word **test** in their name eg. **Button.test.tsx**.
+
+## Stroybook
+
+Storybook allows you to run and view your React components in an a-la-carte, isolated manner.
+To open storybook run this command :
+
+> npm run storybook
 
 ## Contribution
 
@@ -58,6 +66,7 @@ Feel free to add some value to the template either by sending an issue or creati
 1. Clone a repository with the template.
 2. Modify something in the template.
 3. Create an app based on previously modified template:
+
 ```bash
 npx create-react-app my-app --template file:../path/to/template/cra-template-crustlab
 ```

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   NavLink as BaseNavLink,
   NavLinkProps as BaseNavLinkProps,
