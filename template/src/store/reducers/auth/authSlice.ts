@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { authApi } from '../../../services/authApi/authApi';
 import { AppDispatch, RootState } from '../../store';
 import { TAuthState, TTokenReceivedPayload } from './authSliceTypes';
+import { batch } from 'react-redux';
 
 const initialState: TAuthState = {
   accessToken: null,
@@ -42,8 +43,10 @@ export const authReducerPath = authSlice.name;
 export const { tokenReceived, clearTokens } = authSlice.actions;
 
 export const logout = () => (dispatch: AppDispatch) => {
-  dispatch(clearTokens());
-  dispatch(authApi.util.resetApiState());
+  batch(() => {
+    dispatch(clearTokens());
+    dispatch(authApi.util.resetApiState());
+  });
   //TODO: Here u can cleanup data after logout action
 };
 

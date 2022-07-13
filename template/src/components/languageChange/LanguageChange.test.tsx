@@ -29,6 +29,7 @@ const LanguageChangeMock = () => {
 };
 
 beforeEach(() => {
+  // This replaces the original implementation of setTimeout() and other timer functions to allow ant-d components to be animated.
   jest.useFakeTimers();
 });
 
