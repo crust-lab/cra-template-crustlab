@@ -27,7 +27,7 @@ const App = () => {
 };
 
 const AppLayout = styled(Layout)`
-  min-height: 100vh;
+  height: 100%;
 `;
 
 export default App;

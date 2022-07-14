@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Breadcrumb from '../components/breadcrumb/Breadcrumb';
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import SideMenu from '../components/sideMenu/SideMenu';
 
 const PageWithNavBar = () => {
@@ -9,7 +9,7 @@ const PageWithNavBar = () => {
     <PageContainer>
       <SideMenu />
       <Content>
-        <Breadcrumb />
+        <Breadcrumbs />
         <Outlet />
       </Content>
     </PageContainer>

@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-menu-item, .ant-menu, .ant-layout-sider {
-        background: ${({ theme: { colors } }) => colors.primary} !important;
+        background: ${({ theme: { colors } }) => colors.primary};
     } 
 
     .ant-menu-item {
@@ -47,11 +47,29 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-menu-vertical .ant-menu-item:not(:last-child) {
-        margin-bottom: 0 !important;
+        margin: 0 !important;
     }
 
     .ant-breadcrumb li:last-child a {
         color: ${({ theme: { colors } }) => colors.primary} !important;
+    }
+
+    .ant-table {
+        border-radius: 20px;
+    }
+
+    .ant-table-container table > thead > tr:first-child th:first-child {
+        border-top-left-radius: 20px;
+    }
+
+    .ant-table-container table > thead > tr:first-child th:last-child {
+        border-top-right-radius: 20px; 
+    }
+
+    .ant-table-tbody > tr:last-child > td {
+        border-bottom: none;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
 `;
 

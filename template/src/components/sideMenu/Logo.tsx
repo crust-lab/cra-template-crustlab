@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
+import logoTitle from '../../assets/logo.svg';
 
 interface LogoProps {
   hideHeader?: boolean;
@@ -10,7 +11,7 @@ const Logo = ({ hideHeader }: LogoProps) => {
   return (
     <LogoContainer>
       <LogoImg src={logo} alt="logo" />
-      {!hideHeader && <Header> CrustLab </Header>}
+      {!hideHeader && <LogoTitle src={logoTitle} alt="logoTitle" />}
     </LogoContainer>
   );
 };
@@ -28,14 +29,8 @@ const LogoImg = styled.img`
   height: 32px;
 `;
 
-const Header = styled.div`
-  color: ${({ theme: { colors } }) => colors.text01};
+const LogoTitle = styled.img`
   margin-left: 10px;
-  font-size: 20px;
-
-  &:hover {
-    cursor: default;
-  }
 `;
 
 export default Logo;

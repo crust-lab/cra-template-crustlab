@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import {
   BarChartOutlined,
   DashboardOutlined,
@@ -57,6 +57,7 @@ const menuItems: MenuItemType[] = [
 
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const location = useLocation();
 
   return (
     <Sider
@@ -67,9 +68,13 @@ const SideMenu = () => {
       <Logo hideHeader={collapsed} />
       <StyledMenu>
         {menuItems.map(({ to, key, label, icon }) => (
-          <Menu.Item key={key} icon={icon}>
-            <Link to={to}>{label}</Link>
-          </Menu.Item>
+          <StyledMenuItem
+            isActive={to === location.pathname}
+            key={key}
+            icon={icon}
+          >
+            <NavLink to={to}>{label}</NavLink>
+          </StyledMenuItem>
         ))}
       </StyledMenu>
       <UserInfo hideUserName={collapsed} />
@@ -77,8 +82,17 @@ const SideMenu = () => {
   );
 };
 
+type StyledMenuItemProps = {
+  isActive: boolean;
+};
+
 const StyledMenu = styled(Menu)`
   margin-top: 20px;
+`;
+
+const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.hover : theme.colors.primary} !important;
 `;
 
 export default SideMenu;
