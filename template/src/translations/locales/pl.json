@@ -34,5 +34,12 @@
     "required": "To pole jest wymagane",
     "invalidEmail": "Niepoprawny adres email",
     "incorrectEmailOrPassword": "Niepoprawny adres email lub hasło"
+  },
+  "routerPathsLabel": {
+    "home": "Strona Główna",
+    "users": "Użytkownicy",
+    "dashboard": "Panel",
+    "overview": "Przegląd",
+    "tasks": "Zadania"
   }
 }

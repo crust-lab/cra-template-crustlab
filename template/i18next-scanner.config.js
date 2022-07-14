@@ -18,7 +18,7 @@ module.exports = {
       component: 'Trans',
       extensions: [],
     },
-    lngs: ['en'],
+    lngs: ['en', 'pl'],
     ns: ['translation'],
     defaultLng: 'en',
     defaultNs: 'translation',

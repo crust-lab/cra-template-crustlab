@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import theme from './theme/theme';
+import GlobalStyle from './theme/globalStyle';
 import Router from './router/Router';
 import { store } from './store/store';
 
@@ -17,6 +18,7 @@ const App = () => {
         <BrowserRouter>
           <Provider store={store}>
             <Router />
+            <GlobalStyle />
           </Provider>
         </BrowserRouter>
       </ThemeProvider>

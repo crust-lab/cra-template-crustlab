@@ -8,6 +8,13 @@ declare module 'styled-components' {
       black: string;
       gray: string;
       blue: string;
+      primary: string;
+      secondary: string;
+      hover: string;
+      text01: string;
+      background01: string;
+      background02: string;
+      background03: string;
     };
     breakpoints: {
       xs: number;

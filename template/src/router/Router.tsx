@@ -4,25 +4,22 @@ import { routerPaths, routerAuthPaths } from './routerPaths';
 import PageWithNavBar from '../templates/PageWithNavBar';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
-import AuthGuard from './AuthGuard';
-import ProtectedPage from '../pages/ProtectedPage';
-import Lazy from './Lazy';
+import UsersPage from '../pages/UsersPage';
+import OverviewPage from '../pages/OverviewPage';
+import TasksPage from '../pages/TasksPage';
+import DashboardPage from '../pages/DashboardPage';
 
 const Router = () => (
   <Routes>
     <Route path="/" element={<PageWithNavBar />}>
       <Route path={routerPaths.home} element={<HomePage />} />
-      <Route
-        path={routerPaths.rickAndMorty}
-        element={<Lazy component={() => import('../pages/RickyPage')} />}
-      />
-      <Route
-        path={routerPaths.protected}
-        element={<AuthGuard element={<ProtectedPage />} />}
-      />
+      <Route path={routerPaths.users} element={<UsersPage />} />
+      <Route path={routerPaths.overview} element={<OverviewPage />} />
+      <Route path={routerPaths.tasks} element={<TasksPage />} />
+      <Route path={routerPaths.dashboard} element={<DashboardPage />} />
     </Route>
 
-    <Route path="/auth" element={<PageWithNavBar hideNavbar />}>
+    <Route path="/auth" element={<PageWithNavBar />}>
       <Route path={routerAuthPaths.login} element={<LoginPage />} />
     </Route>
 

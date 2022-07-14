@@ -34,5 +34,12 @@
     "required": "This field is required",
     "invalidEmail": "This email address is invalid",
     "incorrectEmailOrPassword": "Incorrect email or password"
+  },
+  "routerPathsLabel": {
+    "home": "Home",
+    "users": "Users",
+    "dashboard": "Dashboard",
+    "overview": "Overview",
+    "tasks": "Tasks"
   }
 }

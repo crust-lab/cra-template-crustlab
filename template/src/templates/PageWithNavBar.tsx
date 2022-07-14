@@ -1,32 +1,33 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Footer from '../components/pageTemplate/Footer';
-import NavBar from '../components/navigation/NavBar';
-import { PageContainer, LogoImg } from '../components/pageTemplate/content';
+import styled from 'styled-components';
+import Breadcrumb from '../components/breadcrumb/Breadcrumb';
+import SideMenu from '../components/sideMenu/SideMenu';
 
-import logo from '../assets/logoCrustlab.svg';
-import LanguageChange from '../components/languageChange/LaungageChange';
-import useLanguageChange from '../hooks/useChangeLanguage';
-
-interface PageWithNavBarProps {
-  hideNavbar?: boolean;
-}
-
-const PageWithNavBar = ({ hideNavbar }: PageWithNavBarProps) => {
-  const { defaultLangVal, languageSwitchOptions } = useLanguageChange();
-
+const PageWithNavBar = () => {
   return (
     <PageContainer>
-      <LogoImg src={logo} alt="logo" />
-      {!hideNavbar && <NavBar />}
-      <LanguageChange
-        defaultLangVal={defaultLangVal}
-        languageSwitchOptions={languageSwitchOptions}
-      />
-      <Outlet />
-      <Footer />
+      <SideMenu />
+      <Content>
+        <Breadcrumb />
+        <Outlet />
+      </Content>
     </PageContainer>
   );
 };
+
+export const PageContainer = styled.div`
+  background-color: ${({ theme: { colors } }) => colors.background02};
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 30px 25px;
+`;
 
 export default PageWithNavBar;
