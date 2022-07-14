@@ -41,5 +41,12 @@
     "dashboard": "Panel",
     "overview": "Przegląd",
     "tasks": "Zadania"
+  },
+  "usersPage": {
+    "pictureLabel": "Zdjęcie",
+    "nameLabel": "Imię i nazwisko",
+    "emailLabel": "Adres email",
+    "phoneLabel": "Numer telefonu",
+    "countryLabel": "Państwo"
   }
 }

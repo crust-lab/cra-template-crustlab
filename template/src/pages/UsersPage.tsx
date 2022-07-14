@@ -5,8 +5,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useGetUsersQuery } from '../services/usersApi/usersApi';
 import { UserLoaction, User } from '../services/usersApi/usersType';
+import { useTranslation } from 'react-i18next';
 
 const UsersPage = () => {
+  const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
 
@@ -24,7 +26,7 @@ const UsersPage = () => {
 
   const columns: ColumnsType<User> = [
     {
-      title: 'Picture',
+      title: t('usersPage.pictureLabel'),
       align: 'center' as const,
       dataIndex: 'picture',
       width: 100,
@@ -32,7 +34,7 @@ const UsersPage = () => {
       render: ({ thumbnail }) => <Avatar src={thumbnail} />,
     },
     {
-      title: 'Name',
+      title: t('usersPage.nameLabel'),
       dataIndex: 'name',
       width: 300,
       key: 'name',
@@ -41,21 +43,21 @@ const UsersPage = () => {
       sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
     },
     {
-      title: 'Email',
+      title: t('usersPage.emailLabel'),
       dataIndex: 'email',
       key: 'email',
       sorter: ({ email: a }, { email: b }) => a.localeCompare(b),
       sortOrder: sortedInfo.columnKey === 'email' ? sortedInfo.order : null,
     },
     {
-      title: 'Phone',
+      title: t('usersPage.phoneLabel'),
       dataIndex: 'phone',
       key: 'phone',
       sorter: ({ phone: a }, { phone: b }) => a.localeCompare(b),
       sortOrder: sortedInfo.columnKey === 'phone' ? sortedInfo.order : null,
     },
     {
-      title: 'Country',
+      title: t('usersPage.countryLabel'),
       dataIndex: 'location',
       key: 'country',
       render: ({ country }: UserLoaction) => country,
