@@ -22,6 +22,18 @@ const styledTheme: DefaultTheme = {
     lg: 992,
     xl: 1200,
   },
+  spacing: {
+    spacing01: 2,
+    spacing02: 4,
+    spacing03: 8,
+    spacing04: 16,
+    spacing05: 24,
+    spacing06: 34,
+    spacing07: 48,
+    spacing08: 64,
+    spacing09: 96,
+    spacing10: 128,
+  },
 };
 
 export default styledTheme;

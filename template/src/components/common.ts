@@ -1,5 +1,6 @@
 import { Card as BaseCard, Typography } from 'antd';
 import styled from 'styled-components';
+import { getSpacing } from '../theme/styleUtils';
 
 const { Title } = Typography;
 
@@ -8,8 +9,8 @@ export const Card = styled(BaseCard)`
   justify-content: center;
   min-width: 330px;
   max-width: 400px;
-  padding: 24px;
-  margin-top: 16px;
+  padding: ${getSpacing('spacing05')}px;
+  margin-top: ${getSpacing('spacing04')}px;
   background-color: ${({ theme: { colors } }) => colors.white};
 `;
 

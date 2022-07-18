@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, TitleH4 } from '../components/common';
 import { useTranslation } from 'react-i18next';
-import LoginForm from '../components/loginForm/LoginForm';
 import styled from 'styled-components';
+import { Card, TitleH4 } from '../components/common';
+import LoginForm from '../components/loginForm/LoginForm';
+
 
 const LoginPage = () => {
   const { t } = useTranslation();

@@ -23,5 +23,17 @@ declare module 'styled-components' {
       lg: number;
       xl: number;
     };
+    spacing: {
+      spacing01: number;
+      spacing02: number;
+      spacing03: number;
+      spacing04: number;
+      spacing05: number;
+      spacing06: number;
+      spacing07: number;
+      spacing08: number;
+      spacing09: number;
+      spacing10: number;
+    };
   }
 }

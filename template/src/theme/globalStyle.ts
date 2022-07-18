@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { getSpacing } from './styleUtils';
 
 const GlobalStyle = createGlobalStyle`
     .ant-layout-sider {
@@ -38,8 +39,10 @@ const GlobalStyle = createGlobalStyle`
 
     .ant-menu-item-icon > svg {
         color: ${({ theme: { colors } }) => colors.text01} !important;
-        width: 20px !important;
-        height: 20px !important; 
+        width: ${({ theme: { spacing } }) =>
+          spacing.spacing04 + spacing.spacing02}px !important;
+        height:  ${({ theme: { spacing } }) =>
+          spacing.spacing04 + spacing.spacing02}px !important;
     }
     
     .ant-menu-vertical  {
@@ -55,21 +58,21 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-table {
-        border-radius: 20px;
+        border-radius: ${getSpacing('spacing05')}px;
     }
 
     .ant-table-container table > thead > tr:first-child th:first-child {
-        border-top-left-radius: 20px;
+        border-top-left-radius: ${getSpacing('spacing05')}px;
     }
 
     .ant-table-container table > thead > tr:first-child th:last-child {
-        border-top-right-radius: 20px; 
+        border-top-right-radius: ${getSpacing('spacing05')}px; 
     }
 
     .ant-table-tbody > tr:last-child > td {
         border-bottom: none;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: ${getSpacing('spacing05')}px;
+        border-bottom-right-radius: ${getSpacing('spacing05')}px;
     }
 `;
 

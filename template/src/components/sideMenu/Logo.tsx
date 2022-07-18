@@ -1,17 +1,21 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import logoTitle from '../../assets/logo.svg';
+import { getSpacing } from '../../theme/styleUtils';
 
 interface LogoProps {
   hideHeader?: boolean;
 }
 
 const Logo = ({ hideHeader }: LogoProps) => {
+  const { t } = useTranslation();
+
   return (
     <LogoContainer>
-      <LogoImg src={logo} alt="logo" />
-      {!hideHeader && <LogoTitle src={logoTitle} alt="logoTitle" />}
+      <LogoImg src={logo} alt={t('logo.alt')} />
+      {!hideHeader && <LogoTitle src={logoTitle} alt={t('logo.alt')} />}
     </LogoContainer>
   );
 };
@@ -19,18 +23,18 @@ const Logo = ({ hideHeader }: LogoProps) => {
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 20px 0;
-  margin: 0 20px;
+  padding: ${getSpacing('spacing04')}px 0;
+  margin: 0 ${getSpacing('spacing04')}px;
   justify-content: center;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.hover};
 `;
 
 const LogoImg = styled.img`
-  height: 32px;
+  height: ${getSpacing('spacing06')}px;
 `;
 
 const LogoTitle = styled.img`
-  margin-left: 10px;
+  margin-left: ${getSpacing('spacing03')}px;
 `;
 
 export default Logo;

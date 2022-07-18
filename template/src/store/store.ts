@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
-import storage from 'redux-persist/lib/storage';
 import {
   persistReducer,
   persistStore,
@@ -11,8 +10,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { usersApi } from '../services/usersApi/usersApi';
+import storage from 'redux-persist/lib/storage';
 import { authApi } from '../services/authApi/authApi';
+import { usersApi } from '../services/usersApi/usersApi';
 import authReducer, { authReducerPath } from './reducers/auth/authSlice';
 
 const persistConfig = {

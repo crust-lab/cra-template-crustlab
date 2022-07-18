@@ -1,5 +1,5 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
 import { useState } from 'react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 import authApiPaths from './authApiPaths';
 import authQueryWithReAuth from './authApiQuery';
 import { LoginRequest, LoginResponse } from './authApiTypes';

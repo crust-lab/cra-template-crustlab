@@ -1,11 +1,11 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
-import theme from '../theme/theme';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from '../store/store';
 import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { store } from '../store/store';
+import theme from '../theme/theme';
 import i18n from '../translations/i18n';
 
 const Providers = ({ children }: { children: ReactNode }) => {

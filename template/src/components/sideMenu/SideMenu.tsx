@@ -1,6 +1,4 @@
 import React, { ReactElement, useState } from 'react';
-import { Layout, Menu } from 'antd';
-import { NavLink, useLocation } from 'react-router-dom';
 import {
   BarChartOutlined,
   DashboardOutlined,
@@ -8,10 +6,13 @@ import {
   UnorderedListOutlined,
   UsergroupDeleteOutlined,
 } from '@ant-design/icons';
-import styled from 'styled-components';
+import { Layout, Menu } from 'antd';
+import { NavLink, useLocation } from 'react-router-dom';
+import styled, { useTheme } from 'styled-components';
+import { getPathLabel, routerPaths } from '../../router/routerPaths';
+import { getSpacing } from '../../theme/styleUtils';
 import Logo from './Logo';
 import UserInfo from './UserInfo';
-import { getPathLabel, routerPaths } from '../../router/routerPaths';
 
 const { Sider } = Layout;
 
@@ -58,6 +59,7 @@ const menuItems: MenuItemType[] = [
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
+  const theme = useTheme();
 
   return (
     <Sider
@@ -68,13 +70,18 @@ const SideMenu = () => {
       <Logo hideHeader={collapsed} />
       <StyledMenu>
         {menuItems.map(({ to, key, label, icon }) => (
-          <StyledMenuItem
-            isActive={to === location.pathname}
+          <Menu.Item
+            style={{
+              backgroundColor:
+                to === location.pathname
+                  ? theme.colors.hover
+                  : theme.colors.primary,
+            }}
             key={key}
             icon={icon}
           >
             <NavLink to={to}>{label}</NavLink>
-          </StyledMenuItem>
+          </Menu.Item>
         ))}
       </StyledMenu>
       <UserInfo hideUserName={collapsed} />
@@ -82,17 +89,8 @@ const SideMenu = () => {
   );
 };
 
-type StyledMenuItemProps = {
-  isActive: boolean;
-};
-
 const StyledMenu = styled(Menu)`
-  margin-top: 20px;
-`;
-
-const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
-  background-color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.hover : theme.colors.primary} !important;
+  margin-top: ${getSpacing('spacing05')}px;
 `;
 
 export default SideMenu;

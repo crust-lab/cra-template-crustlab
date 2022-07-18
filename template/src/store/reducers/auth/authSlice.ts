@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { batch } from 'react-redux';
 import { authApi } from '../../../services/authApi/authApi';
 import { AppDispatch, RootState } from '../../store';
 import { TAuthState, TTokenReceivedPayload } from './authSliceTypes';
-import { batch } from 'react-redux';
 
 const initialState: TAuthState = {
   accessToken: null,

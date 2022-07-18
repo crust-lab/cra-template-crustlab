@@ -1,12 +1,12 @@
-import { Mutex } from 'async-mutex';
 import {
   BaseQueryFn,
   FetchArgs,
   fetchBaseQuery,
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/dist/query/react';
-import { RootState } from '../../store/store';
+import { Mutex } from 'async-mutex';
 import { logout, tokenReceived } from '../../store/reducers/auth/authSlice';
+import { RootState } from '../../store/store';
 import authApiPaths from './authApiPaths';
 import { QueryExtraOptions } from './authApiTypes';
 

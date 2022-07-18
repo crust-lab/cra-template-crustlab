@@ -1,11 +1,12 @@
+import React, { useState } from 'react';
 import { Avatar, Table } from 'antd';
 import type { TableProps } from 'antd';
 import type { ColumnsType, SorterResult } from 'antd/es/table/interface';
-import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useGetUsersQuery } from '../services/usersApi/usersApi';
 import { UserLoaction, User } from '../services/usersApi/usersType';
-import { useTranslation } from 'react-i18next';
+import { getSpacing } from '../theme/styleUtils';
 
 const UsersPage = () => {
   const { t } = useTranslation();
@@ -90,8 +91,8 @@ const UsersPage = () => {
 };
 
 const StyledTable: typeof Table = styled(Table)`
-  margin-top: 30px;
-  border-radius: 30px;
+  margin-top: ${getSpacing('spacing06')}px;
+  border-radius: ${getSpacing('spacing06')}px;
 `;
 
 export default UsersPage;

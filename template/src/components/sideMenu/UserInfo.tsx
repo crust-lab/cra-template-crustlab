@@ -1,8 +1,9 @@
 import React from 'react';
-import { Avatar as AvatarIcon, Dropdown, Menu } from 'antd';
-import styled from 'styled-components';
 import { MoreOutlined } from '@ant-design/icons';
+import { Avatar as AvatarIcon, Dropdown, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { getSpacing } from '../../theme/styleUtils';
 
 interface UserInfoProps {
   hideUserName?: boolean;
@@ -39,7 +40,7 @@ const UserInfo = ({ hideUserName }: UserInfoProps) => {
 
 const UserName = styled.div`
   color: ${({ theme: { colors } }) => colors.text01};
-  margin: 0 10px;
+  margin: 0 ${getSpacing('spacing04')}px;
 `;
 
 const Avatar = styled(AvatarIcon)`
@@ -48,8 +49,8 @@ const Avatar = styled(AvatarIcon)`
 `;
 
 const UserInfoContainer = styled.div`
-  padding: 20px 0;
-  margin: auto 20px 0 20px;
+  padding: ${getSpacing('spacing04')}px 0;
+  margin: auto ${getSpacing('spacing03')}px 0 ${getSpacing('spacing03')}px;
   display: flex;
   justify-content: center;
   align-items: center;

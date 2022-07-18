@@ -48,5 +48,8 @@
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "countryLabel": "Country"
+  },
+  "logo": {
+    "alt": "Crustlab logo"
   }
 }

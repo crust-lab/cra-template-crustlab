@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Input } from 'antd';
+import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { Controller } from 'react-hook-form';
 import { useLoginForm } from '../../forms/loginForm/useLoginForm';
+import { getSpacing } from '../../theme/styleUtils';
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ const LoginForm = () => {
 };
 
 const InputWrapper = styled(Input)`
-  margin: 8px 0;
+  margin: ${getSpacing('spacing03')}px 0;
   width: 400px;
 `;
 
@@ -78,7 +79,7 @@ const Form = styled.form`
 const ErrorMessage = styled.div`
   font-size: 10px;
   position: relative;
-  top: -8px;
+  top: -${getSpacing('spacing03')}px;
   color: ${({ theme: { colors } }) => colors.red};
 `;
 

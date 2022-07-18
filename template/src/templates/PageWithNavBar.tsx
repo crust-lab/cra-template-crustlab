@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import SideMenu from '../components/sideMenu/SideMenu';
+import { getSpacing } from '../theme/styleUtils';
 
 const PageWithNavBar = () => {
   return (
@@ -27,7 +28,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 30px 25px;
+  margin: ${getSpacing('spacing06')}px ${getSpacing('spacing05')}px;
 `;
 
 export default PageWithNavBar;

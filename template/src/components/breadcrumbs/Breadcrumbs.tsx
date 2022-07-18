@@ -1,8 +1,9 @@
 import React from 'react';
 import { Breadcrumb as CoreBreadcrumb } from 'antd';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import useBreadcrumb from '../../hooks/useBreadcrumb';
+import { getSpacing } from '../../theme/styleUtils';
 
 const Breadcrumb = () => {
   const breadcrumbItems = useBreadcrumb();
@@ -18,7 +19,7 @@ const Breadcrumb = () => {
 };
 
 const StyledBreadcrumb = styled(CoreBreadcrumb)`
-  padding-bottom: 20px;
+  padding-bottom: ${getSpacing('spacing05')}px;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.background03};
 `;
 

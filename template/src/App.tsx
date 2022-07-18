@@ -1,13 +1,13 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { ThemeProvider } from 'styled-components';
-import { BrowserRouter } from 'react-router-dom';
-import styled from 'styled-components';
 import { Provider } from 'react-redux';
-import theme from './theme/theme';
-import GlobalStyle from './theme/globalStyle';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import Router from './router/Router';
 import { store } from './store/store';
+import GlobalStyle from './theme/globalStyle';
+import theme from './theme/theme';
 
 import './App.css';
 

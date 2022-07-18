@@ -1,14 +1,15 @@
 import React from 'react';
 import { Button, Typography } from 'antd';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { routerAuthPaths } from '../../router/routerPaths';
 import {
   logout,
   selectIsAuthorised,
 } from '../../store/reducers/auth/authSlice';
-import { Link } from 'react-router-dom';
-import { routerAuthPaths } from '../../router/routerPaths';
-import { useTranslation } from 'react-i18next';
+import { getSpacing } from '../../theme/styleUtils';
 
 const { Text } = Typography;
 
@@ -39,6 +40,6 @@ export default UserInfo;
 
 const Wrapper = styled.div`
   display: flex;
-  padding-top: 16px;
+  padding-top: ${getSpacing('spacing04')}px;
   justify-content: space-between;
 `;
