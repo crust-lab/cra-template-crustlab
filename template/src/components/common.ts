@@ -11,7 +11,7 @@ export const Card = styled(BaseCard)`
   max-width: 400px;
   padding: ${getSpacing('spacing05')}px;
   margin-top: ${getSpacing('spacing04')}px;
-  background-color: ${({ theme: { colors } }) => colors.white};
+  background-color: ${({ theme: { colors } }) => colors.background01};
 `;
 
 export const TitleH4 = styled(Title).attrs({ level: 4 })`

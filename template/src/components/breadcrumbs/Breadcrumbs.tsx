@@ -3,7 +3,7 @@ import { Breadcrumb as CoreBreadcrumb } from 'antd';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import useBreadcrumb from '../../hooks/useBreadcrumb';
-import { getSpacing } from '../../theme/styleUtils';
+import { getColor, getSpacing } from '../../theme/styleUtils';
 
 const Breadcrumb = () => {
   const breadcrumbItems = useBreadcrumb();
@@ -20,12 +20,12 @@ const Breadcrumb = () => {
 
 const StyledBreadcrumb = styled(CoreBreadcrumb)`
   padding-bottom: ${getSpacing('spacing05')}px;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.background03};
+  border-bottom: 1px solid ${getColor('background03')};
 `;
 
 const BreadcrumbItem = styled(CoreBreadcrumb.Item)`
   a:hover {
-    color: ${({ theme: { colors } }) => colors.hover} !important;
+    color: ${getColor('hover')} !important;
   }
 `;
 

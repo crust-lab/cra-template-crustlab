@@ -31,25 +31,11 @@ const GlobalStyle = createGlobalStyle`
         background: ${({ theme: { colors } }) => colors.secondary} !important; 
     }
 
-    .ant-menu-title-content {
-        & > a {
-            color: ${({ theme: { colors } }) => colors.text01} !important;
-        }
-    }
-
-    .ant-menu-item-icon > svg {
-        color: ${({ theme: { colors } }) => colors.text01} !important;
-        width: ${({ theme: { spacing } }) =>
-          spacing.spacing04 + spacing.spacing02}px !important;
-        height:  ${({ theme: { spacing } }) =>
-          spacing.spacing04 + spacing.spacing02}px !important;
-    }
-    
     .ant-menu-vertical  {
         border-right: none;
     }
 
-    .ant-menu-vertical .ant-menu-item:not(:last-child) {
+    .ant-menu-vertical .ant-menu-item {
         margin: 0 !important;
     }
 

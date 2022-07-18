@@ -2,20 +2,27 @@ import React from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 import { Avatar as AvatarIcon, Dropdown, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { getSpacing } from '../../theme/styleUtils';
+import { logout } from '../../store/reducers/auth/authSlice';
+import { getColor, getSpacing } from '../../theme/styleUtils';
 
 interface UserInfoProps {
   hideUserName?: boolean;
 }
 
 const UserMenu = () => {
-  const logOut = () => console.log('log out');
+  const history = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    history('/auth/login');
+  };
   const { t } = useTranslation();
 
   return (
     <Menu>
-      <Menu.Item key="" onClick={logOut}>
+      <Menu.Item key="" onClick={handleLogout}>
         {t('auth.logout')}
       </Menu.Item>
     </Menu>
@@ -39,13 +46,13 @@ const UserInfo = ({ hideUserName }: UserInfoProps) => {
 };
 
 const UserName = styled.div`
-  color: ${({ theme: { colors } }) => colors.text01};
+  color: ${getColor('text01')};
   margin: 0 ${getSpacing('spacing04')}px;
 `;
 
 const Avatar = styled(AvatarIcon)`
-  background-color: ${({ theme: { colors } }) => colors.white};
-  color: ${({ theme: { colors } }) => colors.primary};
+  background-color: ${getColor('background01')};
+  color: ${getColor('primary')};
 `;
 
 const UserInfoContainer = styled.div`
@@ -54,7 +61,7 @@ const UserInfoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid ${({ theme: { colors } }) => colors.hover};
+  border-top: 1px solid ${getColor('hover')};
 
   &:hover {
     cursor: pointer;

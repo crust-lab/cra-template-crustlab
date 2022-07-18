@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import SideMenu from '../components/sideMenu/SideMenu';
-import { getSpacing } from '../theme/styleUtils';
+import { getColor, getSpacing } from '../theme/styleUtils';
 
 const PageWithNavBar = () => {
   return (
@@ -18,7 +18,7 @@ const PageWithNavBar = () => {
 };
 
 export const PageContainer = styled.div`
-  background-color: ${({ theme: { colors } }) => colors.background02};
+  background-color: ${getColor('background02')};
   min-height: 100vh;
   display: flex;
   width: 100%;

@@ -10,6 +10,7 @@ type RequireAuthProps = {
 
 const AuthGuard = ({ element }: RequireAuthProps) => {
   const isAuthorised = useAppSelector(selectIsAuthorised);
+  console.log(isAuthorised);
   const location = useLocation();
 
   if (!isAuthorised) {

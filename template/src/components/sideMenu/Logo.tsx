@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
 import logoTitle from '../../assets/logo.svg';
-import { getSpacing } from '../../theme/styleUtils';
+import { getColor, getSpacing } from '../../theme/styleUtils';
 
 interface LogoProps {
   hideHeader?: boolean;
@@ -26,7 +26,7 @@ const LogoContainer = styled.div`
   padding: ${getSpacing('spacing04')}px 0;
   margin: 0 ${getSpacing('spacing04')}px;
   justify-content: center;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.hover};
+  border-bottom: 1px solid ${getColor('hover')};
 `;
 
 const LogoImg = styled.img`

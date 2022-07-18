@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { NavLink, useLocation } from 'react-router-dom';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 import { getPathLabel, routerPaths } from '../../router/routerPaths';
 import { getSpacing } from '../../theme/styleUtils';
 import Logo from './Logo';
@@ -59,7 +59,6 @@ const menuItems: MenuItemType[] = [
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
-  const theme = useTheme();
 
   return (
     <Sider
@@ -70,18 +69,14 @@ const SideMenu = () => {
       <Logo hideHeader={collapsed} />
       <StyledMenu>
         {menuItems.map(({ to, key, label, icon }) => (
-          <Menu.Item
-            style={{
-              backgroundColor:
-                to === location.pathname
-                  ? theme.colors.hover
-                  : theme.colors.primary,
-            }}
+          <StyledMenuItem
+            collapsed={collapsed}
+            isActive={to === location.pathname}
             key={key}
             icon={icon}
           >
             <NavLink to={to}>{label}</NavLink>
-          </Menu.Item>
+          </StyledMenuItem>
         ))}
       </StyledMenu>
       <UserInfo hideUserName={collapsed} />
@@ -89,8 +84,34 @@ const SideMenu = () => {
   );
 };
 
+type StyledMenuItemProps = {
+  isActive: boolean;
+  collapsed: boolean;
+};
+
 const StyledMenu = styled(Menu)`
   margin-top: ${getSpacing('spacing05')}px;
+`;
+
+const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.hover : theme.colors.primary} !important;
+  a,
+  svg {
+    font-weight: ${({ isActive }) => (isActive ? '900' : '400')} !important;
+    color: ${({ isActive, theme }) =>
+      isActive ? theme.colors.text01 : theme.colors.text02} !important;
+  }
+  svg {
+    height: ${({ collapsed, isActive, theme: { spacing } }) =>
+      isActive && !collapsed
+        ? spacing.spacing05
+        : spacing.spacing04 + spacing.spacing02}px !important;
+    width: ${({ collapsed, isActive, theme: { spacing } }) =>
+      isActive && !collapsed
+        ? spacing.spacing05
+        : spacing.spacing04 + spacing.spacing02}px !important;
+  }
 `;
 
 export default SideMenu;

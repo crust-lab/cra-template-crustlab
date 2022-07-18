@@ -4,7 +4,9 @@ import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useLoginForm } from '../../forms/loginForm/useLoginForm';
-import { getSpacing } from '../../theme/styleUtils';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import { selectIsAuthorised } from '../../store/reducers/auth/authSlice';
+import { getColor, getSpacing } from '../../theme/styleUtils';
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -16,6 +18,9 @@ const LoginForm = () => {
     error,
     formState: { errors },
   } = useLoginForm();
+
+  const isAuthorised = useAppSelector(selectIsAuthorised);
+  console.log(isAuthorised);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -80,7 +85,7 @@ const ErrorMessage = styled.div`
   font-size: 10px;
   position: relative;
   top: -${getSpacing('spacing03')}px;
-  color: ${({ theme: { colors } }) => colors.red};
+  color: ${getColor('danger')};
 `;
 
 export default withTranslation()(LoginForm);
