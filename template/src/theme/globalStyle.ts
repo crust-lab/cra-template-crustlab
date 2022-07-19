@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { getSpacing } from './styleUtils';
+import { getColor, getSpacing } from './styleUtils';
 
 const GlobalStyle = createGlobalStyle`
     .ant-layout-sider {
@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-menu-item, .ant-menu, .ant-layout-sider {
-        background: ${({ theme: { colors } }) => colors.primary};
+        background: ${getColor('primary')};
     } 
 
     .ant-menu-item {
@@ -24,11 +24,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-menu-item:hover {
-        background: ${({ theme: { colors } }) => colors.hover} !important;
+        background: ${getColor('primaryHover')} !important;
     }
 
     .ant-layout-sider-trigger {
-        background: ${({ theme: { colors } }) => colors.secondary} !important; 
+        background: ${getColor('secondary')} !important; 
     }
 
     .ant-menu-vertical  {
@@ -40,25 +40,25 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-breadcrumb li:last-child a {
-        color: ${({ theme: { colors } }) => colors.primary} !important;
+        color: ${getColor('secondary')} !important;
     }
 
     .ant-table {
-        border-radius: ${getSpacing('spacing05')}px;
+        border-radius: ${getSpacing('spacing24')}px;
     }
 
     .ant-table-container table > thead > tr:first-child th:first-child {
-        border-top-left-radius: ${getSpacing('spacing05')}px;
+        border-top-left-radius: ${getSpacing('spacing24')}px;
     }
 
     .ant-table-container table > thead > tr:first-child th:last-child {
-        border-top-right-radius: ${getSpacing('spacing05')}px; 
+        border-top-right-radius: ${getSpacing('spacing24')}px; 
     }
 
     .ant-table-tbody > tr:last-child > td {
         border-bottom: none;
-        border-bottom-left-radius: ${getSpacing('spacing05')}px;
-        border-bottom-right-radius: ${getSpacing('spacing05')}px;
+        border-bottom-left-radius: ${getSpacing('spacing24')}px;
+        border-bottom-right-radius: ${getSpacing('spacing24')}px;
     }
 `;
 

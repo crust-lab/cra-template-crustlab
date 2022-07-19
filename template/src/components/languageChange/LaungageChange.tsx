@@ -46,5 +46,5 @@ const LanguageChange = ({
 export default LanguageChange;
 
 const StyledText = styled(Text)`
-  margin: 0 ${getSpacing('spacing03')};
+  margin: 0 ${getSpacing('spacing8')};
 `;

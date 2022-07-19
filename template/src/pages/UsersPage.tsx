@@ -12,15 +12,14 @@ const UsersPage = () => {
   const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
-
-  const [sortedInfo, setSortedInfo] = useState<SorterResult<User>>({});
+  const [orderInfo, setOrderInfo] = useState<SorterResult<User>>({});
 
   const onChange: TableProps<User>['onChange'] = (
     _pagination,
     _filters,
     sorter
   ) => {
-    setSortedInfo(sorter as SorterResult<User>);
+    setOrderInfo(sorter as SorterResult<User>);
   };
 
   const { data, isFetching } = useGetUsersQuery({ page, pageSize });
@@ -41,21 +40,21 @@ const UsersPage = () => {
       key: 'name',
       render: ({ first, last, title }) => `${title} ${first} ${last}`,
       sorter: ({ name: a }, { name: b }) => a.first.localeCompare(b.first),
-      sortOrder: sortedInfo.columnKey === 'name' ? sortedInfo.order : null,
+      sortOrder: orderInfo.columnKey === 'name' ? orderInfo.order : null,
     },
     {
       title: t('usersPage.emailLabel'),
       dataIndex: 'email',
       key: 'email',
       sorter: ({ email: a }, { email: b }) => a.localeCompare(b),
-      sortOrder: sortedInfo.columnKey === 'email' ? sortedInfo.order : null,
+      sortOrder: orderInfo.columnKey === 'email' ? orderInfo.order : null,
     },
     {
       title: t('usersPage.phoneLabel'),
       dataIndex: 'phone',
       key: 'phone',
       sorter: ({ phone: a }, { phone: b }) => a.localeCompare(b),
-      sortOrder: sortedInfo.columnKey === 'phone' ? sortedInfo.order : null,
+      sortOrder: orderInfo.columnKey === 'phone' ? orderInfo.order : null,
     },
     {
       title: t('usersPage.countryLabel'),
@@ -64,7 +63,7 @@ const UsersPage = () => {
       render: ({ country }: UserLoaction) => country,
       sorter: ({ location: { country: a } }, { location: { country: b } }) =>
         a.localeCompare(b),
-      sortOrder: sortedInfo.columnKey === 'country' ? sortedInfo.order : null,
+      sortOrder: orderInfo.columnKey === 'country' ? orderInfo.order : null,
     },
   ];
 
@@ -91,8 +90,8 @@ const UsersPage = () => {
 };
 
 const StyledTable: typeof Table = styled(Table)`
-  margin-top: ${getSpacing('spacing06')}px;
-  border-radius: ${getSpacing('spacing06')}px;
+  margin-top: ${getSpacing('spacing32')}px;
+  border-radius: ${getSpacing('spacing32')}px;
 `;
 
 export default UsersPage;

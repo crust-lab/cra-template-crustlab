@@ -18,7 +18,7 @@ const PageWithNavBar = () => {
 };
 
 export const PageContainer = styled.div`
-  background-color: ${getColor('background02')};
+  background-color: ${getColor('secondaryBackground')};
   min-height: 100vh;
   display: flex;
   width: 100%;
@@ -28,7 +28,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: ${getSpacing('spacing06')}px ${getSpacing('spacing05')}px;
+  margin: ${getSpacing('spacing32')}px ${getSpacing('spacing24')}px;
 `;
 
 export default PageWithNavBar;

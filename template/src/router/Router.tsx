@@ -12,11 +12,8 @@ import { routerPaths, routerAuthPaths } from './routerPaths';
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<PageWithNavBar />}>
-      <Route
-        path={routerPaths.home}
-        element={<AuthGuard element={<HomePage />} />}
-      />
+    <Route path="/" element={<AuthGuard element={<PageWithNavBar />} />}>
+      <Route path={routerPaths.home} element={<HomePage />} />
       <Route path={routerPaths.users} element={<UsersPage />} />
       <Route path={routerPaths.overview} element={<OverviewPage />} />
       <Route path={routerPaths.tasks} element={<TasksPage />} />

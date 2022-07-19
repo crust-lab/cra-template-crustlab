@@ -47,21 +47,21 @@ const UserInfo = ({ hideUserName }: UserInfoProps) => {
 
 const UserName = styled.div`
   color: ${getColor('text01')};
-  margin: 0 ${getSpacing('spacing04')}px;
+  margin: 0 ${getSpacing('spacing16')}px;
 `;
 
 const Avatar = styled(AvatarIcon)`
-  background-color: ${getColor('background01')};
+  background-color: ${getColor('primaryBackground')};
   color: ${getColor('primary')};
 `;
 
 const UserInfoContainer = styled.div`
-  padding: ${getSpacing('spacing04')}px 0;
-  margin: auto ${getSpacing('spacing03')}px 0 ${getSpacing('spacing03')}px;
+  padding: ${getSpacing('spacing16')}px 0;
+  margin: auto ${getSpacing('spacing8')}px 0 ${getSpacing('spacing8')}px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid ${getColor('hover')};
+  border-top: 1px solid ${getColor('primaryAccent')};
 
   &:hover {
     cursor: pointer;

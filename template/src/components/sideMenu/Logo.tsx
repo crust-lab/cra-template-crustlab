@@ -23,18 +23,18 @@ const Logo = ({ hideHeader }: LogoProps) => {
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: ${getSpacing('spacing04')}px 0;
-  margin: 0 ${getSpacing('spacing04')}px;
+  padding: ${getSpacing('spacing16')}px 0;
+  margin: 0 ${getSpacing('spacing16')}px;
   justify-content: center;
-  border-bottom: 1px solid ${getColor('hover')};
+  border-bottom: 1px solid ${getColor('primaryAccent')};
 `;
 
 const LogoImg = styled.img`
-  height: ${getSpacing('spacing06')}px;
+  height: ${getSpacing('spacing32')}px;
 `;
 
 const LogoTitle = styled.img`
-  margin-left: ${getSpacing('spacing03')}px;
+  margin-left: ${getSpacing('spacing8')}px;
 `;
 
 export default Logo;

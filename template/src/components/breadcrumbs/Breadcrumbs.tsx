@@ -19,13 +19,13 @@ const Breadcrumb = () => {
 };
 
 const StyledBreadcrumb = styled(CoreBreadcrumb)`
-  padding-bottom: ${getSpacing('spacing05')}px;
-  border-bottom: 1px solid ${getColor('background03')};
+  padding-bottom: ${getSpacing('spacing24')}px;
+  border-bottom: 1px solid ${getColor('primaryHover')};
 `;
 
 const BreadcrumbItem = styled(CoreBreadcrumb.Item)`
   a:hover {
-    color: ${getColor('hover')} !important;
+    color: ${getColor('primaryHover')} !important;
   }
 `;
 

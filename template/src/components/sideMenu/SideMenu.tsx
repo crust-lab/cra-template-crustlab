@@ -90,12 +90,12 @@ type StyledMenuItemProps = {
 };
 
 const StyledMenu = styled(Menu)`
-  margin-top: ${getSpacing('spacing05')}px;
+  margin-top: ${getSpacing('spacing24')}px;
 `;
 
 const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
   background-color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.hover : theme.colors.primary} !important;
+    isActive ? theme.colors.primaryHover : theme.colors.primary} !important;
   a,
   svg {
     font-weight: ${({ isActive }) => (isActive ? '900' : '400')} !important;
@@ -105,12 +105,12 @@ const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
   svg {
     height: ${({ collapsed, isActive, theme: { spacing } }) =>
       isActive && !collapsed
-        ? spacing.spacing05
-        : spacing.spacing04 + spacing.spacing02}px !important;
+        ? spacing.spacing24
+        : spacing.spacing16 + spacing.spacing4}px !important;
     width: ${({ collapsed, isActive, theme: { spacing } }) =>
       isActive && !collapsed
-        ? spacing.spacing05
-        : spacing.spacing04 + spacing.spacing02}px !important;
+        ? spacing.spacing24
+        : spacing.spacing16 + spacing.spacing4}px !important;
   }
 `;
 

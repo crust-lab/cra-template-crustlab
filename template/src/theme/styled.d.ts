@@ -6,12 +6,13 @@ declare module 'styled-components' {
       primary: string;
       secondary: string;
       danger: string;
-      hover: string;
+      primaryHover: string;
+      primaryAccent: string;
+      primaryActive: string;
       text01: string;
       text02: string;
-      background01: string;
-      background02: string;
-      background03: string;
+      primaryBackground: string;
+      secondaryBackground: string;
     };
     breakpoints: {
       xs: number;
@@ -21,16 +22,16 @@ declare module 'styled-components' {
       xl: number;
     };
     spacing: {
-      spacing01: number;
-      spacing02: number;
-      spacing03: number;
-      spacing04: number;
-      spacing05: number;
-      spacing06: number;
-      spacing07: number;
-      spacing08: number;
-      spacing09: number;
-      spacing10: number;
+      spacing2: number;
+      spacing4: number;
+      spacing8: number;
+      spacing16: number;
+      spacing24: number;
+      spacing32: number;
+      spacing48: number;
+      spacing64: number;
+      spacing96: number;
+      spacing128: number;
     };
   }
 }

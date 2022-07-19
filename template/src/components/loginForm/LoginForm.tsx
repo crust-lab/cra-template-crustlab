@@ -4,8 +4,6 @@ import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useLoginForm } from '../../forms/loginForm/useLoginForm';
-import { useAppSelector } from '../../hooks/reduxHooks';
-import { selectIsAuthorised } from '../../store/reducers/auth/authSlice';
 import { getColor, getSpacing } from '../../theme/styleUtils';
 
 const LoginForm = () => {
@@ -18,9 +16,6 @@ const LoginForm = () => {
     error,
     formState: { errors },
   } = useLoginForm();
-
-  const isAuthorised = useAppSelector(selectIsAuthorised);
-  console.log(isAuthorised);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -70,7 +65,7 @@ const LoginForm = () => {
 };
 
 const InputWrapper = styled(Input)`
-  margin: ${getSpacing('spacing03')}px 0;
+  margin: ${getSpacing('spacing8')}px 0;
   width: 400px;
 `;
 
@@ -84,7 +79,7 @@ const Form = styled.form`
 const ErrorMessage = styled.div`
   font-size: 10px;
   position: relative;
-  top: -${getSpacing('spacing03')}px;
+  top: -${getSpacing('spacing8')}px;
   color: ${getColor('danger')};
 `;
 
