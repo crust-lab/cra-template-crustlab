@@ -3,18 +3,16 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
-      white: string;
-      red: string;
-      black: string;
-      gray: string;
-      blue: string;
       primary: string;
       secondary: string;
-      hover: string;
+      danger: string;
+      primaryHover: string;
+      primaryAccent: string;
+      primaryActive: string;
       text01: string;
-      background01: string;
-      background02: string;
-      background03: string;
+      text02: string;
+      primaryBackground: string;
+      secondaryBackground: string;
     };
     breakpoints: {
       xs: number;
@@ -22,6 +20,18 @@ declare module 'styled-components' {
       md: number;
       lg: number;
       xl: number;
+    };
+    spacing: {
+      spacing2: number;
+      spacing4: number;
+      spacing8: number;
+      spacing16: number;
+      spacing24: number;
+      spacing32: number;
+      spacing48: number;
+      spacing64: number;
+      spacing96: number;
+      spacing128: number;
     };
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
-import { routerAuthPaths } from '../router/routerPaths';
 import { useAppSelector } from '../hooks/reduxHooks';
+import { routerAuthPaths } from '../router/routerPaths';
 import { selectIsAuthorised } from '../store/reducers/auth/authSlice';
 
 type RequireAuthProps = {

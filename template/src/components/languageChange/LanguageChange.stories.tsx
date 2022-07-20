@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useTranslation } from 'react-i18next';
 import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
 import LaungageChange, { LanguageSwitchOption } from './LaungageChange';
 

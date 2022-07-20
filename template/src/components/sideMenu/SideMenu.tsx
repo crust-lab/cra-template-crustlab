@@ -1,6 +1,4 @@
 import React, { ReactElement, useState } from 'react';
-import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
 import {
   BarChartOutlined,
   DashboardOutlined,
@@ -8,10 +6,13 @@ import {
   UnorderedListOutlined,
   UsergroupDeleteOutlined,
 } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import { NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { getPathLabel, routerPaths } from '../../router/routerPaths';
+import { getSpacing } from '../../theme/styleUtils';
 import Logo from './Logo';
 import UserInfo from './UserInfo';
-import { getPathLabel, routerPaths } from '../../router/routerPaths';
 
 const { Sider } = Layout;
 
@@ -57,6 +58,7 @@ const menuItems: MenuItemType[] = [
 
 const SideMenu = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const location = useLocation();
 
   return (
     <Sider
@@ -67,9 +69,14 @@ const SideMenu = () => {
       <Logo hideHeader={collapsed} />
       <StyledMenu>
         {menuItems.map(({ to, key, label, icon }) => (
-          <Menu.Item key={key} icon={icon}>
-            <Link to={to}>{label}</Link>
-          </Menu.Item>
+          <StyledMenuItem
+            collapsed={collapsed}
+            isActive={to === location.pathname}
+            key={key}
+            icon={icon}
+          >
+            <NavLink to={to}>{label}</NavLink>
+          </StyledMenuItem>
         ))}
       </StyledMenu>
       <UserInfo hideUserName={collapsed} />
@@ -77,8 +84,34 @@ const SideMenu = () => {
   );
 };
 
+type StyledMenuItemProps = {
+  isActive: boolean;
+  collapsed: boolean;
+};
+
 const StyledMenu = styled(Menu)`
-  margin-top: 20px;
+  margin-top: ${getSpacing('spacing24')}px;
+`;
+
+const StyledMenuItem = styled(Menu.Item)<StyledMenuItemProps>`
+  background-color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.primaryHover : theme.colors.primary} !important;
+  a,
+  svg {
+    font-weight: ${({ isActive }) => (isActive ? '900' : '400')} !important;
+    color: ${({ isActive, theme }) =>
+      isActive ? theme.colors.text01 : theme.colors.text02} !important;
+  }
+  svg {
+    height: ${({ collapsed, isActive, theme: { spacing } }) =>
+      isActive && !collapsed
+        ? spacing.spacing24
+        : spacing.spacing16 + spacing.spacing4}px !important;
+    width: ${({ collapsed, isActive, theme: { spacing } }) =>
+      isActive && !collapsed
+        ? spacing.spacing24
+        : spacing.spacing16 + spacing.spacing4}px !important;
+  }
 `;
 
 export default SideMenu;

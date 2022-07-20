@@ -1,17 +1,18 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { routerPaths, routerAuthPaths } from './routerPaths';
-import PageWithNavBar from '../templates/PageWithNavBar';
+import DashboardPage from '../pages/DashboardPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
-import UsersPage from '../pages/UsersPage';
 import OverviewPage from '../pages/OverviewPage';
 import TasksPage from '../pages/TasksPage';
-import DashboardPage from '../pages/DashboardPage';
+import UsersPage from '../pages/UsersPage';
+import PageWithNavBar from '../templates/PageWithNavBar';
+import AuthGuard from './AuthGuard';
+import { routerPaths, routerAuthPaths } from './routerPaths';
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<PageWithNavBar />}>
+    <Route path="/" element={<AuthGuard element={<PageWithNavBar />} />}>
       <Route path={routerPaths.home} element={<HomePage />} />
       <Route path={routerPaths.users} element={<UsersPage />} />
       <Route path={routerPaths.overview} element={<OverviewPage />} />
@@ -19,7 +20,7 @@ const Router = () => (
       <Route path={routerPaths.dashboard} element={<DashboardPage />} />
     </Route>
 
-    <Route path="/auth" element={<PageWithNavBar />}>
+    <Route path="/auth">
       <Route path={routerAuthPaths.login} element={<LoginPage />} />
     </Route>
 

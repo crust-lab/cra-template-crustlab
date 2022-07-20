@@ -1,16 +1,21 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import logo from '../../assets/logo.png';
+import logoTitle from '../../assets/logo.svg';
+import { getColor, getSpacing } from '../../theme/styleUtils';
 
 interface LogoProps {
   hideHeader?: boolean;
 }
 
 const Logo = ({ hideHeader }: LogoProps) => {
+  const { t } = useTranslation();
+
   return (
     <LogoContainer>
-      <LogoImg src={logo} alt="logo" />
-      {!hideHeader && <Header> CrustLab </Header>}
+      <LogoImg src={logo} alt={t('logo.alt')} />
+      {!hideHeader && <LogoTitle src={logoTitle} alt={t('logo.alt')} />}
     </LogoContainer>
   );
 };
@@ -18,24 +23,18 @@ const Logo = ({ hideHeader }: LogoProps) => {
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 20px 0;
-  margin: 0 20px;
+  padding: ${getSpacing('spacing16')}px 0;
+  margin: 0 ${getSpacing('spacing16')}px;
   justify-content: center;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.hover};
+  border-bottom: 1px solid ${getColor('primaryAccent')};
 `;
 
 const LogoImg = styled.img`
-  height: 32px;
+  height: ${getSpacing('spacing32')}px;
 `;
 
-const Header = styled.div`
-  color: ${({ theme: { colors } }) => colors.text01};
-  margin-left: 10px;
-  font-size: 20px;
-
-  &:hover {
-    cursor: default;
-  }
+const LogoTitle = styled.img`
+  margin-left: ${getSpacing('spacing8')}px;
 `;
 
 export default Logo;

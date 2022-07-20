@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
-import storage from 'redux-persist/lib/storage';
 import {
   persistReducer,
   persistStore,
@@ -11,8 +10,9 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { rickyApi } from '../services/rickyApi/rickyApi';
+import storage from 'redux-persist/lib/storage';
 import { authApi } from '../services/authApi/authApi';
+import { usersApi } from '../services/usersApi/usersApi';
 import authReducer, { authReducerPath } from './reducers/auth/authSlice';
 
 const persistConfig = {
@@ -20,17 +20,17 @@ const persistConfig = {
   version: 1,
   storage,
   whitelist: [authReducerPath],
-  blacklist: [rickyApi.reducerPath, authApi.reducerPath],
+  blacklist: [usersApi.reducerPath, authApi.reducerPath],
 };
 
 const appReducer = combineReducers({
-  [rickyApi.reducerPath]: rickyApi.reducer,
+  [usersApi.reducerPath]: usersApi.reducer,
   [authApi.reducerPath]: authApi.reducer,
   [authReducerPath]: authReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, appReducer);
-const middlewares = [rickyApi.middleware];
+const middlewares = [usersApi.middleware];
 
 export const store = configureStore({
   reducer: persistedReducer,

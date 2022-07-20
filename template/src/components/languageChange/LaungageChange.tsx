@@ -1,7 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Select, Typography } from 'antd';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { getSpacing } from '../../theme/styleUtils';
 import { TFunctionArgumentType } from '../../translations/i18n';
 
 const { Text } = Typography;
@@ -45,5 +46,5 @@ const LanguageChange = ({
 export default LanguageChange;
 
 const StyledText = styled(Text)`
-  margin: 0 8px;
+  margin: 0 ${getSpacing('spacing8')};
 `;

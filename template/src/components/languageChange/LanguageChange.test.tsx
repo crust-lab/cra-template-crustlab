@@ -1,8 +1,8 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import LanguageChange from './LaungageChange';
 import { useTranslation } from 'react-i18next';
 import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
+import LanguageChange from './LaungageChange';
 import { LanguageSwitchOption } from './LaungageChange';
 
 const LanguageChangeMock = () => {

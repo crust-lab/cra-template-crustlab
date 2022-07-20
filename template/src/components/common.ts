@@ -1,5 +1,6 @@
 import { Card as BaseCard, Typography } from 'antd';
 import styled from 'styled-components';
+import { getSpacing } from '../theme/styleUtils';
 
 const { Title } = Typography;
 
@@ -8,9 +9,9 @@ export const Card = styled(BaseCard)`
   justify-content: center;
   min-width: 330px;
   max-width: 400px;
-  padding: 24px;
-  margin-top: 16px;
-  background-color: ${({ theme: { colors } }) => colors.white};
+  padding: ${getSpacing('spacing24')}px;
+  margin-top: ${getSpacing('spacing16')}px;
+  background-color: ${({ theme: { colors } }) => colors.primaryBackground};
 `;
 
 export const TitleH4 = styled(Title).attrs({ level: 4 })`
