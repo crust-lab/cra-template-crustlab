@@ -1,9 +1,9 @@
 import { generate } from '@ant-design/colors';
 import { DefaultTheme } from 'styled-components';
 
-const LIGHT_PRIMARY_COLOR = '#2F49D1';
-const lightPrimaryColors = generate(LIGHT_PRIMARY_COLOR);
-const darkPrimaryColors = generate(LIGHT_PRIMARY_COLOR, { theme: 'dark' });
+const PRIMARY_COLOR = '#2F49D1';
+const lightPrimaryColors = generate(PRIMARY_COLOR);
+const darkPrimaryColors = generate(PRIMARY_COLOR, { theme: 'dark' });
 
 const spacing = {
   spacing2: 2,

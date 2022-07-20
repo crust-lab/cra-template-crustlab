@@ -60,7 +60,7 @@ const UserPage = () => {
 };
 
 const Text = styled.div`
-  margin-top: 5px;
+  margin-top: ${getSpacing('spacing4')}px;
 `;
 
 const UserContainer = styled.div`
