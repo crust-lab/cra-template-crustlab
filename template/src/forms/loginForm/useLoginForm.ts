@@ -7,7 +7,6 @@ import { usePostLoginMutation } from '../../services/authApi/authApi';
 import { tokenReceived } from '../../store/reducers/auth/authSlice';
 import validationMessages from './validationMessages';
 
-
 export enum LoginFormFields {
   Email = 'email',
   Password = 'password',
@@ -49,8 +48,8 @@ export const useLoginForm = () => {
 
     if (data) {
       const { access, refresh } = data;
-      history('/');
       dispatch(tokenReceived({ accessToken: access, refreshToken: refresh }));
+      history('/');
     }
   };
 

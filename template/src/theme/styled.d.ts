@@ -11,8 +11,19 @@ declare module 'styled-components' {
       primaryActive: string;
       text01: string;
       text02: string;
+      textHover: string;
       primaryBackground: string;
       secondaryBackground: string;
+      primary01: string;
+      primary02: string;
+      primary03: string;
+      primary04: string;
+      primary05: string;
+      primary06: string;
+      primary07: string;
+      primary08: string;
+      primary09: string;
+      primary10: string;
     };
     breakpoints: {
       xs: number;

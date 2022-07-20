@@ -4,6 +4,7 @@ import { Avatar as AvatarIcon, Dropdown, Menu } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useAppDispatch } from '../../helpers/hooks';
 import { logout } from '../../store/reducers/auth/authSlice';
 import { getColor, getSpacing } from '../../theme/styleUtils';
 
@@ -13,9 +14,10 @@ interface UserInfoProps {
 
 const UserMenu = () => {
   const history = useNavigate();
+  const dispatch = useAppDispatch();
 
   const handleLogout = () => {
-    logout();
+    dispatch(logout());
     history('/auth/login');
   };
   const { t } = useTranslation();

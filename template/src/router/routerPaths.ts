@@ -13,15 +13,16 @@ export const routerPaths = {
 };
 
 export const routerAuthPaths = {
-  login: '/auth/login',
+  login: '/login',
 };
 
-export const pathToLabelMap = {
-  [routerPaths.home]: t('routerPathsLabel.home'),
-  [routerPaths.users]: t('routerPathsLabel.users'),
-  [routerPaths.dashboard]: t('routerPathsLabel.dashboard'),
-  [routerPaths.overview]: t('routerPathsLabel.overview'),
-  [routerPaths.tasks]: t('routerPathsLabel.tasks'),
+export const getPathLabel = (path: string) => {
+  const pathToLabelMap = {
+    [routerPaths.home]: t('routerPathsLabel.home'),
+    [routerPaths.users]: t('routerPathsLabel.users'),
+    [routerPaths.dashboard]: t('routerPathsLabel.dashboard'),
+    [routerPaths.overview]: t('routerPathsLabel.overview'),
+    [routerPaths.tasks]: t('routerPathsLabel.tasks'),
+  };
+  return pathToLabelMap[path];
 };
-
-export const getPathLabel = (path: string) => pathToLabelMap[path];

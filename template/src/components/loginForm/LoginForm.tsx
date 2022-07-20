@@ -41,7 +41,7 @@ const LoginForm = () => {
         control={control}
         render={({ field: { onChange, value } }) => (
           <>
-            <InputWrapper
+            <PasswordWrapper
               placeholder={t('loginPage.passwordLabel')}
               status={(errors?.password || error) && 'error'}
               type="password"
@@ -57,16 +57,29 @@ const LoginForm = () => {
       {error && (
         <ErrorMessage>{t('validation.incorrectEmailOrPassword')}</ErrorMessage>
       )}
-      <Button loading={isLoading} type="primary" htmlType="submit">
+      <StyledButton loading={isLoading} type="primary" htmlType="submit">
         {t('loginPage.submit')}
-      </Button>
+      </StyledButton>
     </Form>
   );
 };
 
+const StyledButton = styled(Button)`
+  width: 400px;
+  margin-top: ${getSpacing('spacing8')}px;
+  border-radius: ${getSpacing('spacing24')}px;
+`;
+
 const InputWrapper = styled(Input)`
   margin: ${getSpacing('spacing8')}px 0;
   width: 400px;
+  border-radius: ${getSpacing('spacing24')}px;
+`;
+
+const PasswordWrapper = styled(Input.Password)`
+  margin: ${getSpacing('spacing8')}px 0;
+  width: 400px;
+  border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const Form = styled.form`

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { store } from '../store/store';
-import theme from '../theme/theme';
+import { lightTheme } from '../theme/theme';
 import i18n from '../translations/i18n';
 
 const Providers = ({ children }: { children: ReactNode }) => {
@@ -14,7 +14,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
     <I18nextProvider i18n={i18n}>
       <Provider store={store}>
         <BrowserRouter>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+          <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
         </BrowserRouter>
       </Provider>
     </I18nextProvider>
