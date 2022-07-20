@@ -22,7 +22,12 @@ export type UserLoaction = {
   postcode: number;
 };
 
+export type UserLogin = {
+  uuid: string;
+};
+
 export type User = {
+  login: UserLogin;
   email: string;
   picture: UserPicture;
   name: UserName;
