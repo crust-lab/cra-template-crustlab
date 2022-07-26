@@ -1,7 +1,4 @@
 {
-  "homePage": {
-    "title": "Hej..."
-  },
   "rickyPage": {
     "title": "Strona Rick and Morty!"
   },
@@ -64,5 +61,17 @@
   "themeChange": {
     "lightModeLabel": "Jasny motyw",
     "darkModeLabel": "Ciemny motyw"
+  },
+  "dashboardPage": {
+    "title": "Panel"
+  },
+  "tasksPage": {
+    "title": "Zadania"
+  },
+  "overviewPage": {
+    "title": "Przegląd"
+  },
+  "homePage": {
+    "title": "Strona Główna"
   }
 }

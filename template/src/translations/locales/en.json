@@ -1,7 +1,4 @@
 {
-  "homePage": {
-    "title": "Hello..."
-  },
   "rickyPage": {
     "title": "Rick and Morty Page!"
   },
@@ -64,5 +61,17 @@
   "themeChange": {
     "lightModeLabel": "Light mode",
     "darkModeLabel": "Dark mode"
+  },
+  "dashboardPage": {
+    "title": "Dashboard page"
+  },
+  "tasksPage": {
+    "title": "Tasks page"
+  },
+  "overviewPage": {
+    "title": "Overview page"
+  },
+  "homePage": {
+    "title": "Home page"
   }
 }
