@@ -77,7 +77,7 @@ const SideMenu = () => {
           <StyledMenuItem
             collapsed={collapsed}
             isActive={
-              to === '/'
+              to === routerPaths.home
                 ? location.pathname === to
                 : location.pathname.includes(to)
             }

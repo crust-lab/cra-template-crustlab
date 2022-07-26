@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { getColor } from '../theme/styleUtils';
 
 const DashboardPage = () => {
-  return <Header>DASHBOARD PAGE</Header>;
+  const { t } = useTranslation();
+  return <Header>{t('dashboardPage.title')}</Header>;
 };
 
 const Header = styled.div`
