@@ -1,19 +1,17 @@
-import { Card as BaseCard, Typography } from 'antd';
+import { Layout } from 'antd';
+import { Content } from 'antd/lib/layout/layout';
 import styled from 'styled-components';
-import { getSpacing } from '../theme/styleUtils';
+import { getColor, getSpacing } from '../theme/styleUtils';
 
-const { Title } = Typography;
-
-export const Card = styled(BaseCard)`
+export const PageContainer = styled(Layout)`
+  background-color: ${getColor('primaryBackground')};
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  min-width: 330px;
-  max-width: 400px;
-  padding: ${getSpacing('spacing24')}px;
-  margin-top: ${getSpacing('spacing16')}px;
-  background-color: ${({ theme: { colors } }) => colors.primaryBackground};
+  width: 100%;
 `;
 
-export const TitleH4 = styled(Title).attrs({ level: 4 })`
-  text-align: center;
+export const StyledContent = styled(Content)`
+  display: flex;
+  flex-direction: column;
+  margin: ${getSpacing('spacing16')}px ${getSpacing('spacing24')}px;
 `;

@@ -9,7 +9,7 @@ import { useAppDispatch } from '../hooks/reduxHooks';
 import { useGetUsersQuery } from '../services/usersApi/usersApi';
 import { UserLoaction, User } from '../services/usersApi/usersType';
 import { setSelectedUser } from '../store/reducers/users/usersSlice';
-import { getSpacing } from '../theme/styleUtils';
+import { getMediaQueryBreakpoint, getSpacing } from '../theme/styleUtils';
 
 const UsersPage = () => {
   const { t } = useTranslation();
@@ -41,7 +41,6 @@ const UsersPage = () => {
     {
       title: t('usersPage.nameLabel'),
       dataIndex: 'name',
-      width: 300,
       key: 'name',
       render: ({ first, last, title }) => `${title} ${first} ${last}`,
       sorter: ({ name: a }, { name: b }) => a.first.localeCompare(b.first),
@@ -94,14 +93,16 @@ const UsersPage = () => {
       })}
       scroll={{
         y: '70vh',
-        x: '30vw',
+        x: 'max-content',
       }}
     />
   );
 };
 
 const StyledTable: typeof Table = styled(Table)`
-  margin-top: ${getSpacing('spacing32')}px;
+  @media ${getMediaQueryBreakpoint('md')} {
+    margin-top: ${getSpacing('spacing32')}px;
+  }
   border-radius: ${getSpacing('spacing32')}px;
 `;
 

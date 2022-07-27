@@ -1,75 +1,28 @@
-import React, { ReactElement, useMemo, useState } from 'react';
-import {
-  BarChartOutlined,
-  DashboardOutlined,
-  HomeOutlined,
-  UnorderedListOutlined,
-  UsergroupDeleteOutlined,
-} from '@ant-design/icons';
+import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { getPathLabel, routerPaths } from '../../router/routerPaths';
+import { MenuItemType } from '../../templates/PageContainer';
 import { getSpacing } from '../../theme/styleUtils';
 import Logo from './Logo';
 import UserInfo from './UserInfo';
 
 const { Sider } = Layout;
 
-type MenuItemType = {
-  to: string;
-  key: string;
-  label: string;
-  icon: ReactElement;
-};
+interface SideMenuProps {
+  menuItems: MenuItemType[];
+}
 
-const SideMenu = () => {
+const SideMenu = ({ menuItems }: SideMenuProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
-  const { i18n } = useTranslation();
-
-  const menuItems: MenuItemType[] = useMemo(
-    () => [
-      {
-        to: routerPaths.home,
-        key: routerPaths.home,
-        label: getPathLabel(routerPaths.home),
-        icon: <HomeOutlined />,
-      },
-      {
-        to: routerPaths.users,
-        key: routerPaths.users,
-        label: getPathLabel(routerPaths.users),
-        icon: <UsergroupDeleteOutlined />,
-      },
-      {
-        to: routerPaths.dashboard,
-        key: routerPaths.dashboard,
-        label: getPathLabel(routerPaths.dashboard),
-        icon: <DashboardOutlined />,
-      },
-      {
-        to: routerPaths.overview,
-        key: routerPaths.overview,
-        label: getPathLabel(routerPaths.overview),
-        icon: <BarChartOutlined />,
-      },
-      {
-        to: routerPaths.tasks,
-        key: routerPaths.tasks,
-        label: getPathLabel(routerPaths.tasks),
-        icon: <UnorderedListOutlined />,
-      },
-    ],
-    [i18n.language]
-  );
 
   return (
     <Sider
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
+      breakpoint="xl"
     >
       <Logo hideHeader={collapsed} />
       <StyledMenu>
@@ -77,7 +30,7 @@ const SideMenu = () => {
           <StyledMenuItem
             collapsed={collapsed}
             isActive={
-              to === routerPaths.home
+              to === '/'
                 ? location.pathname === to
                 : location.pathname.includes(to)
             }

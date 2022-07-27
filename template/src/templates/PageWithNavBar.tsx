@@ -1,68 +1,55 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Footer } from 'antd/lib/layout/layout';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
-import LanguageChange, {
-  LanguageSwitchOption,
-} from '../components/languageChange/LaungageChange';
-import SideMenu from '../components/sideMenu/SideMenu';
-import ThemeChange from '../components/themeChange/ThemeChange';
+import logo from '../assets/logo-crustlab.svg';
+import Avatar from '../components/avatar/Avatar';
+import { PageContainer, StyledContent } from '../components/common';
+import Navbar from '../components/navbar/Navbar';
 import { getColor, getSpacing } from '../theme/styleUtils';
-import { DEFAULT_LANGUAGE, LanguageOptions } from '../translations/i18n';
+import { MenuItemType } from './PageContainer';
 
-const PageWithNavBar = () => {
-  const { i18n } = useTranslation();
-  const defaultLangVal = (i18n.language as LanguageOptions) || DEFAULT_LANGUAGE;
+interface PageWithNavBarProps {
+  menuItems: MenuItemType[];
+}
 
-  const languageSwitchOptions: LanguageSwitchOption[] = [
-    {
-      value: LanguageOptions.EN,
-      labelTranslation: 'languageChange.eng',
-    },
-    {
-      value: LanguageOptions.PL,
-      labelTranslation: 'languageChange.pl',
-    },
-  ];
-
+const PageWithNavBar = ({ menuItems }: PageWithNavBarProps) => {
   return (
     <PageContainer>
-      <SideMenu />
-      <Content>
-        <Header>
-          <Breadcrumbs />
-          <LanguageChange
-            languageSwitchOptions={languageSwitchOptions}
-            defaultLangVal={defaultLangVal}
-          />
-          <ThemeChange />
-        </Header>
+      <StyledHeader>
+        <Logo src={logo} />
+        <Avatar />
+      </StyledHeader>
+      <StyledContent>
         <Outlet />
-      </Content>
+      </StyledContent>
+      <StyledFooter>
+        <Navbar menuItems={menuItems} />
+      </StyledFooter>
     </PageContainer>
   );
 };
 
-export const PageContainer = styled.div`
-  background-color: ${getColor('primaryBackground')};
-  min-height: 100vh;
-  display: flex;
-  width: 100%;
+const Logo = styled.img`
+  height: ${getSpacing('spacing32')}px;
 `;
 
-export const Content = styled.div`
+const StyledHeader = styled.div`
+  background: ${getColor('primaryBackground')};
+  padding: ${getSpacing('spacing24')}px ${getSpacing('spacing24')}px
+    ${getSpacing('spacing8')}px ${getSpacing('spacing24')}px;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: ${getSpacing('spacing32')}px ${getSpacing('spacing24')}px;
+  justify-content: space-between;
 `;
 
-export const Header = styled.div`
-  display: flex;
-  align-items: center;
+const StyledFooter = styled(Footer)`
+  padding: ${getSpacing('spacing8')}px ${getSpacing('spacing24')}px 0
+    ${getSpacing('spacing24')}px;
+  background: ${getColor('primaryBackground')};
+  position: sticky;
+  z-index: 1;
+  bottom: 0;
   width: 100%;
-  border-bottom: 1px solid ${getColor('primaryAccent')};
 `;
 
 export default PageWithNavBar;

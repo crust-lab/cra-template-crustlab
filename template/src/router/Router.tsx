@@ -7,13 +7,13 @@ import OverviewPage from '../pages/OverviewPage';
 import TasksPage from '../pages/TasksPage';
 import UserPage from '../pages/UserPage';
 import UsersPage from '../pages/UsersPage';
-import PageWithNavBar from '../templates/PageWithNavBar';
+import PageContainer from '../templates/PageContainer';
 import AuthGuard from './AuthGuard';
 import { routerPaths, routerAuthPaths } from './routerPaths';
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<AuthGuard element={<PageWithNavBar />} />}>
+    <Route path="/" element={<AuthGuard element={<PageContainer />} />}>
       <Route path={routerPaths.home} element={<HomePage />} />
       <Route path={routerPaths.users} element={<UsersPage />} />
       <Route path={`${routerPaths.users}/:id`} element={<UserPage />} />

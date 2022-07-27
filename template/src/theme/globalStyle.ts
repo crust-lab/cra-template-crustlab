@@ -152,6 +152,18 @@ const GlobalStyle = createGlobalStyle`
     .ant-empty-normal {
         color: ${getColor('text02')};
     }
+
+    .adm-tab-bar-item-active {
+        color: ${getColor('primary')} !important;
+    }
+
+    .ant-pagination-item-active:focus-visible a, .ant-pagination-item-active:hover a {
+        color: ${getColor('primary')} !important; 
+    }
+
+    .ant-pagination-item:hover {
+        border-color: ${getColor('primary')} !important; 
+    }
 `;
 
 export default GlobalStyle;

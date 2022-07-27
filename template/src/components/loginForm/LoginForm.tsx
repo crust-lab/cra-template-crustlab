@@ -4,7 +4,11 @@ import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useLoginForm } from '../../forms/loginForm/useLoginForm';
-import { getColor, getSpacing } from '../../theme/styleUtils';
+import {
+  getColor,
+  getMediaQueryBreakpoint,
+  getSpacing,
+} from '../../theme/styleUtils';
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -65,25 +69,45 @@ const LoginForm = () => {
 };
 
 const StyledButton = styled(Button)`
-  width: 400px;
+  @media ${getMediaQueryBreakpoint('xs')} {
+    width: 60%;
+  }
+  @media ${getMediaQueryBreakpoint('md')} {
+    width: 400px;
+  }
   margin-top: ${getSpacing('spacing8')}px;
   border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const InputWrapper = styled(Input)`
+  @media ${getMediaQueryBreakpoint('xs')} {
+    max-width: 60%;
+  }
+  @media ${getMediaQueryBreakpoint('md')} {
+    max-width: 400px;
+  }
   margin: ${getSpacing('spacing8')}px 0;
-  width: 400px;
   border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const PasswordWrapper = styled(Input.Password)`
+  @media ${getMediaQueryBreakpoint('xs')} {
+    width: 60%;
+  }
+  @media ${getMediaQueryBreakpoint('md')} {
+    width: 400px;
+  }
   margin: ${getSpacing('spacing8')}px 0;
-  width: 400px;
   border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const Form = styled.form`
-  width: 500px;
+  @media ${getMediaQueryBreakpoint('xs')} {
+    width: 100%;
+  }
+  @media ${getMediaQueryBreakpoint('md')} {
+    width: 500px;
+  }
   display: flex;
   align-items: center;
   flex-direction: column;

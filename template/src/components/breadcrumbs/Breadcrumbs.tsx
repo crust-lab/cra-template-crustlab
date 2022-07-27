@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import useBreadcrumb from '../../hooks/useBreadcrumb';
 import { getColor, getSpacing } from '../../theme/styleUtils';
 
-const Breadcrumb = () => {
+const Breadcrumbs = () => {
   const breadcrumbItems = useBreadcrumb();
   return (
     <StyledBreadcrumb>
@@ -28,4 +28,4 @@ const BreadcrumbItem = styled(CoreBreadcrumb.Item)`
   }
 `;
 
-export default Breadcrumb;
+export default Breadcrumbs;
