@@ -42,6 +42,18 @@ Above command creates **lang/en.json** file with english messages. Compare newly
 1. Create a new file e.g. **fr.json** in **lang** directory.
 2. Modify configure **i18n.ts** file, import new translation file and add to resources array.
 
+## Sentry
+
+Sentry is a developer-first error tracking and performance monitoring platform that helps developers see what actually matters, solve quicker, and learn continuously about their applications.
+Sentry configuration is done in **index.tsx** the file, Sentry is only run on a production environment.
+In order to configure the sentry correctly, we need to define two env variables **REACT_APP_SENTRY_DSN** and **REACT_APP_SETNRY_AUTH_TOKEN** and put them in our **.env** configuration file.
+To create a new auth token (**REACT_APP_SETNRY_AUTH_TOKEN**), or simply copy an existing one, just open sentry.io in your browser and then go to **Settings > Account > API > Auth Tokens**.
+In order for sentry to correctly display the error stack trace, we need to uplod the source map. To do this, we can use a previously prepared script **sentryCreateRelease.js** and run this npm command :
+
+> npm run release
+
+This command will build our codebase and then run **sentryCreateRelease.js** script.
+
 ## Testing
 
 To run all the tests, use the previously created command :
