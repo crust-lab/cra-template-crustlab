@@ -42,13 +42,12 @@ const authSlice = createSlice({
 export const authReducerPath = authSlice.name;
 export const { tokenReceived, clearTokens } = authSlice.actions;
 
-export const logout = () => (dispatch: AppDispatch) => {
+export const logout = () => (dispatch: AppDispatch) =>
   batch(() => {
     dispatch(clearTokens());
     dispatch(authApi.util.resetApiState());
   });
-  //TODO: Here u can cleanup data after logout action
-};
+//TODO: Here u can cleanup data after logout action
 
 export const selectIsAuthorised = ({ auth }: RootState) =>
   auth.accessToken !== null;

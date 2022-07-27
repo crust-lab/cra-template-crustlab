@@ -3,9 +3,12 @@ import { Avatar, Table } from 'antd';
 import type { TableProps } from 'antd';
 import type { ColumnsType, SorterResult } from 'antd/es/table/interface';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { useAppDispatch } from '../hooks/reduxHooks';
 import { useGetUsersQuery } from '../services/usersApi/usersApi';
 import { UserLoaction, User } from '../services/usersApi/usersType';
+import { setSelectedUser } from '../store/reducers/users/usersSlice';
 import { getSpacing } from '../theme/styleUtils';
 
 const UsersPage = () => {
@@ -23,6 +26,8 @@ const UsersPage = () => {
   };
 
   const { data, isFetching } = useGetUsersQuery({ page, pageSize });
+  const dispatch = useAppDispatch();
+  const history = useNavigate();
 
   const columns: ColumnsType<User> = [
     {
@@ -81,6 +86,12 @@ const UsersPage = () => {
           setPageSize(newPageSize);
         },
       }}
+      onRow={(user) => ({
+        onClick: () => {
+          dispatch(setSelectedUser(user));
+          history(user?.login?.uuid);
+        },
+      })}
       scroll={{
         y: '70vh',
         x: '30vw',

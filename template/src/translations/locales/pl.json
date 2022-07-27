@@ -1,16 +1,13 @@
 {
-  "homePage": {
-    "title": "Hej..."
-  },
   "rickyPage": {
     "title": "Strona Rick and Morty!"
   },
   "loginPage": {
-    "title": "Strona Logowania!",
+    "title": "Logowanie",
     "emailLabel": "Adres email",
     "passwordLabel": "Hasło",
     "rememberMeLabel": "Zapamiętaj mnie",
-    "submit": "Wyślij"
+    "submit": "Zaloguj"
   },
   "protectedPage": {
     "title": "Strona Chroniona!"
@@ -51,5 +48,30 @@
   },
   "logo": {
     "alt": "Crustlab logo"
+  },
+  "userPage": {
+    "firstname": "Imię: ",
+    "lastname": "Nazwisko: ",
+    "phoneNumber": "Numer telefonu: ",
+    "email": "Adres email: ",
+    "address": "Adres: ",
+    "country": "Kraj: ",
+    "state": "Województwo: "
+  },
+  "themeChange": {
+    "lightModeLabel": "Jasny motyw",
+    "darkModeLabel": "Ciemny motyw"
+  },
+  "dashboardPage": {
+    "title": "Panel"
+  },
+  "tasksPage": {
+    "title": "Zadania"
+  },
+  "overviewPage": {
+    "title": "Przegląd"
+  },
+  "homePage": {
+    "title": "Strona Główna"
   }
 }

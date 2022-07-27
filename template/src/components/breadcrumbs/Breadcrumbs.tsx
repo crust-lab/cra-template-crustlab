@@ -20,7 +20,6 @@ const Breadcrumb = () => {
 
 const StyledBreadcrumb = styled(CoreBreadcrumb)`
   padding-bottom: ${getSpacing('spacing24')}px;
-  border-bottom: 1px solid ${getColor('primaryHover')};
 `;
 
 const BreadcrumbItem = styled(CoreBreadcrumb.Item)`

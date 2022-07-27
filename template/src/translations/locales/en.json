@@ -1,16 +1,13 @@
 {
-  "homePage": {
-    "title": "Hello..."
-  },
   "rickyPage": {
     "title": "Rick and Morty Page!"
   },
   "loginPage": {
-    "title": "Login Page!",
+    "title": "Sign in",
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "rememberMeLabel": "RememberMe",
-    "submit": "Submit"
+    "submit": "Sing in"
   },
   "protectedPage": {
     "title": "Protected Page!"
@@ -51,5 +48,30 @@
   },
   "logo": {
     "alt": "Crustlab logo"
+  },
+  "userPage": {
+    "firstname": "Firstname: ",
+    "lastname": "Lastname: ",
+    "phoneNumber": "Phone number: ",
+    "email": "Email: ",
+    "address": "Adress: ",
+    "country": "Country: ",
+    "state": "State: "
+  },
+  "themeChange": {
+    "lightModeLabel": "Light mode",
+    "darkModeLabel": "Dark mode"
+  },
+  "dashboardPage": {
+    "title": "Dashboard page"
+  },
+  "tasksPage": {
+    "title": "Tasks page"
+  },
+  "overviewPage": {
+    "title": "Overview page"
+  },
+  "homePage": {
+    "title": "Home page"
   }
 }

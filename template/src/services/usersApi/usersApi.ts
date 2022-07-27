@@ -15,7 +15,7 @@ export const usersApi = createApi({
   endpoints: (builder) => ({
     getUsers: builder.query<UsersResponse, GetUsersRequest>({
       query: ({ page, pageSize }) =>
-        `/?page=${page}&results=${pageSize}&seed=asdasd`,
+        `/?page=${page}&results=${pageSize}&seed=EjwjkrDGVB`,
       providesTags: [Tags.Users],
     }),
   }),

@@ -1,6 +1,7 @@
 {
   "package": {
     "dependencies": {
+      "@ant-design/colors": "^6.0.0",
       "@ant-design/icons": "^4.7.0",
       "@hookform/resolvers": "^2.9.3",
       "@reduxjs/toolkit": "^1.8.3",
