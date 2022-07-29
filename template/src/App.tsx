@@ -1,32 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Layout } from 'antd';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
-import Router from './router/Router';
-import { store } from './store/store';
+import { ThemeContextProvider } from './contexts/ThemeContext';
+import Router from './router';
+import { store } from './store';
 import GlobalStyle from './theme/globalStyle';
-import { lightTheme } from './theme/theme';
 import './App.css';
-import { ThemeContext } from './theme/ThemeContext';
 
 const App = () => {
-  const [theme, setTheme] = useState<DefaultTheme>(lightTheme);
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContextProvider>
       <AppLayout>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <Provider store={store}>
-              <Router />
-              <GlobalStyle />
-            </Provider>
-          </BrowserRouter>
-        </ThemeProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Router />
+            <GlobalStyle />
+          </Provider>
+        </BrowserRouter>
       </AppLayout>
-    </ThemeContext.Provider>
+    </ThemeContextProvider>
   );
 };
 
