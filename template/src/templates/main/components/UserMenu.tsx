@@ -1,9 +1,11 @@
 import React from 'react';
 import { Menu } from 'antd';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../helpers/hooks';
-import { logout } from '../../store/reducers/auth/authSlice';
+import { AuthPaths } from '../../../router/paths';
+import { logout } from '../../../store/auth/slice';
+import { useAppDispatch } from '../../../store/hooks';
 
 export const UserMenu = () => {
   const history = useNavigate();
@@ -11,15 +13,17 @@ export const UserMenu = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    history('/auth/login');
+    history(AuthPaths.LOGIN);
   };
   const { t } = useTranslation();
 
-  return (
-    <Menu>
-      <Menu.Item key="" onClick={handleLogout}>
-        {t('auth.logout')}
-      </Menu.Item>
-    </Menu>
-  );
+  const items: ItemType[] = [
+    {
+      key: AuthPaths.LOGIN,
+      label: t('templates.main.components.userMenu.logout'),
+      onClick: handleLogout,
+    },
+  ];
+
+  return <Menu items={items}></Menu>;
 };

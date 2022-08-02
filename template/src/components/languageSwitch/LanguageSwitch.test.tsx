@@ -1,23 +1,10 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { useTranslation } from 'react-i18next';
-import LanguageSwitch, { LanguageSwitchOption } from '.';
-import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
+import LanguageSwitch from '.';
+import { useLanguage } from '../../hooks';
 
 const LanguageSwitchMock = () => {
-  const { i18n } = useTranslation();
-  const defaultLangVal = (i18n.language as LanguageOptions) || DEFAULT_LANGUAGE;
-
-  const languageSwitchOptions: LanguageSwitchOption[] = [
-    {
-      value: LanguageOptions.EN,
-      labelTranslation: 'languageChange.eng',
-    },
-    {
-      value: LanguageOptions.PL,
-      labelTranslation: 'languageChange.pl',
-    },
-  ];
+  const { defaultLangVal, languageSwitchOptions } = useLanguage();
 
   return (
     <LanguageSwitch

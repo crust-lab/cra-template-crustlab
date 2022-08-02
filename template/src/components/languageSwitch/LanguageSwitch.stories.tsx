@@ -1,8 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useTranslation } from 'react-i18next';
-import LaungageChange, { LanguageSwitchOption } from '.';
-import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
+import LaungageChange from '.';
+import { useLanguage } from '../../hooks';
 
 export default {
   title: 'Components',
@@ -11,20 +10,8 @@ export default {
 
 export const LanguageSwitchButton: ComponentStory<typeof LaungageChange> =
   () => {
-    const { i18n } = useTranslation();
-    const defaultLangVal =
-      (i18n.language as LanguageOptions) || DEFAULT_LANGUAGE;
+    const { defaultLangVal, languageSwitchOptions } = useLanguage();
 
-    const languageSwitchOptions: LanguageSwitchOption[] = [
-      {
-        value: LanguageOptions.EN,
-        labelTranslation: 'languageChange.eng',
-      },
-      {
-        value: LanguageOptions.PL,
-        labelTranslation: 'languageChange.pl',
-      },
-    ];
     return (
       <LaungageChange
         defaultLangVal={defaultLangVal}

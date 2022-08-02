@@ -5,7 +5,7 @@ import { getColor } from '../../theme/styleUtils';
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  return <Header>{t('dashboardPage.title')}</Header>;
+  return <Header>{t('pages.dashboardPage.title')}</Header>;
 };
 
 const Header = styled.div`

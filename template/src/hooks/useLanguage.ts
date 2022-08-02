@@ -18,11 +18,11 @@ const useLanguage = () => {
   const languageSwitchOptions: LanguageSwitchOption[] = [
     {
       value: LanguageOptions.EN,
-      labelTranslation: 'languageChange.eng',
+      labelTranslation: 'components.languageSwitcher.eng',
     },
     {
       value: LanguageOptions.PL,
-      labelTranslation: 'languageChange.pl',
+      labelTranslation: 'components.languageSwitcher.pl',
     },
   ];
 

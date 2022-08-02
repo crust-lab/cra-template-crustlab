@@ -1,79 +1,86 @@
 {
-  "rickyPage": {
-    "title": "Strona Rick and Morty!"
+  "components": {
+    "languageSwitcher": {
+      "language": "Język",
+      "eng": "ENG",
+      "pl": "PL"
+    },
+    "themeSwitch": {
+      "lightModeLabel": "Jasny motyw",
+      "darkModeLabel": "Ciemny motyw"
+    }
   },
-  "loginPage": {
-    "title": "Logowanie",
-    "emailLabel": "Adres email",
-    "passwordLabel": "Hasło",
-    "rememberMeLabel": "Zapamiętaj mnie",
-    "submit": "Zaloguj"
+  "pages": {
+    "loginPage": {
+      "alt": "Crustlab logo",
+      "title": "Logowanie",
+      "components": {
+        "form": {
+          "emailLabel": "Adres email",
+          "passwordLabel": "Hasło",
+          "rememberMeLabel": "Zapamiętaj mnie",
+          "submit": "Zaloguj",
+          "errors": {
+            "incorrectEmailOrPassword": "Niepoprawny email lub hasło"
+          }
+        }
+      }
+    },
+    "usersPage": {
+      "pictureLabel": "Zdjęcie",
+      "nameLabel": "Imię i nazwisko",
+      "emailLabel": "Adres email",
+      "phoneLabel": "Numer telefonu",
+      "countryLabel": "Państwo"
+    },
+    "userPage": {
+      "firstname": "Imię: ",
+      "lastname": "Nazwisko: ",
+      "phoneNumber": "Numer telefonu: ",
+      "email": "Adres email: ",
+      "address": "Adres: ",
+      "country": "Kraj: ",
+      "state": "Województwo: "
+    },
+    "homePage": {
+      "title": "Strona Główna"
+    },
+    "dashboardPage": {
+      "title": "Panel"
+    },
+    "tasksPage": {
+      "title": "Zadania"
+    },
+    "overviewPage": {
+      "title": "Przegląd"
+    }
   },
-  "protectedPage": {
-    "title": "Strona Chroniona!"
+  "templates": {
+    "main": {
+      "components": {
+        "desktop": {
+          "logo": {
+            "alt": "Crustlab logo"
+          }
+        },
+        "userMenu": {
+          "logout": "Wyloguj"
+        }
+      }
+    }
   },
-  "navigation": {
-    "home": "Strona Główna",
-    "rickAndMorty": "Rick and Morty",
-    "protected": "Strona Chroniona"
+  "router": {
+    "paths": {
+      "home": "Strona Główna",
+      "users": "Użytkownicy",
+      "dashboard": "Panel",
+      "overview": "Przegląd",
+      "tasks": "Zadania",
+      "wildcard": "*"
+    }
   },
-  "languageChange": {
-    "language": "Język",
-    "eng": "ENG",
-    "pl": "PL"
-  },
-  "auth": {
-    "isUserAuthorised": "Użytkownik zalogowany",
-    "goToLogin": "Przejdz do logowania",
-    "logout": "Wyloguj"
-  },
-  "validation": {
+  "globalErrors": {
     "required": "To pole jest wymagane",
-    "invalidEmail": "Niepoprawny adres email",
-    "incorrectEmailOrPassword": "Niepoprawny adres email lub hasło"
-  },
-  "routerPathsLabel": {
-    "home": "Strona Główna",
-    "users": "Użytkownicy",
-    "dashboard": "Panel",
-    "overview": "Przegląd",
-    "tasks": "Zadania",
-    "protected": "",
-    "wildcard": ""
-  },
-  "usersPage": {
-    "pictureLabel": "Zdjęcie",
-    "nameLabel": "Imię i nazwisko",
-    "emailLabel": "Adres email",
-    "phoneLabel": "Numer telefonu",
-    "countryLabel": "Państwo"
-  },
-  "logo": {
-    "alt": "Crustlab logo"
-  },
-  "userPage": {
-    "firstname": "Imię: ",
-    "lastname": "Nazwisko: ",
-    "phoneNumber": "Numer telefonu: ",
-    "email": "Adres email: ",
-    "address": "Adres: ",
-    "country": "Kraj: ",
-    "state": "Województwo: "
-  },
-  "themeChange": {
-    "lightModeLabel": "Jasny motyw",
-    "darkModeLabel": "Ciemny motyw"
-  },
-  "dashboardPage": {
-    "title": "Panel"
-  },
-  "tasksPage": {
-    "title": "Zadania"
-  },
-  "overviewPage": {
-    "title": "Przegląd"
-  },
-  "homePage": {
-    "title": "Strona Główna"
+    "invalidEmail": "Niepoprawny adres email"
   }
 }

@@ -28,12 +28,37 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .ant-menu-item, .ant-menu, .ant-layout-sider {
+        color: ${getColor('textHover')};
         background: ${getColor('primary')};
     } 
 
     .ant-menu-item {
         display: flex;
         align-items: center;
+        .ant-menu-title-content {
+            font-weight: 400;
+        }
+        .ant-menu-item-icon > svg {
+            height: ${({ theme: { spacing } }) =>
+              spacing.spacing16 + spacing.spacing4}px;
+            width: ${({ theme: { spacing } }) =>
+              spacing.spacing16 + spacing.spacing4}px;
+        }
+    }
+
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        background-color: ${getColor('primaryHover')} !important;
+        color: ${getColor('text01')} !important;;
+        .ant-menu-title-content {
+            font-weight: 900 !important;;
+        }
+    }
+
+    .ant-menu:not(.ant-menu-inline-collapsed):not(.ant-menu-horizontal) .ant-menu-item-selected   {
+        .ant-menu-item-icon > svg {
+            height: ${getSpacing('spacing24')}px !important;;
+            width: ${getSpacing('spacing24')}px !important;;
+        }
     }
 
     .ant-dropdown-trigger > svg {
@@ -42,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
 
     .ant-menu-item:hover {
         background: ${getColor('primaryHover')} !important;
+        color: ${getColor('textHover')} !important;
     }
 
     .ant-layout-sider-trigger {

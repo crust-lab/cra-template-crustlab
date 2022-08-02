@@ -9,8 +9,8 @@ const ThemeSwitch = () => {
 
   return (
     <Switch
-      checkedChildren={t('themeChange.lightModeLabel')}
-      unCheckedChildren={t('themeChange.darkModeLabel')}
+      checkedChildren={t('components.themeSwitch.lightModeLabel')}
+      unCheckedChildren={t('components.themeSwitch.darkModeLabel')}
       onChange={toggleTheme}
     />
   );

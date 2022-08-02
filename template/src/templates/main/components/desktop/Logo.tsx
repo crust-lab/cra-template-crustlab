@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import logo from '../../../assets/logo.png';
-import logoTitle from '../../../assets/logo.svg';
-import { getColor, getSpacing } from '../../../theme/styleUtils';
+import logo from '../../../../assets/logo.png';
+import logoTitle from '../../../../assets/logo.svg';
+import { getColor, getSpacing } from '../../../../theme/styleUtils';
 
 interface LogoProps {
   hideHeader?: boolean;
@@ -14,8 +14,16 @@ const Logo = ({ hideHeader }: LogoProps) => {
 
   return (
     <LogoContainer>
-      <LogoImg src={logo} alt={t('logo.alt')} />
-      {!hideHeader && <LogoTitle src={logoTitle} alt={t('logo.alt')} />}
+      <LogoImg
+        src={logo}
+        alt={t('templates.main.components.desktop.logo.alt')}
+      />
+      {!hideHeader && (
+        <LogoTitle
+          src={logoTitle}
+          alt={t('templates.main.components.desktop.logo.alt')}
+        />
+      )}
     </LogoContainer>
   );
 };

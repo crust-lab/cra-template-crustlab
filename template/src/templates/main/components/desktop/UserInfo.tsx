@@ -2,9 +2,8 @@ import React from 'react';
 import { MoreOutlined } from '@ant-design/icons';
 import { Avatar as AvatarIcon, Dropdown } from 'antd';
 import styled from 'styled-components';
-import { getColor, getSpacing } from '../../theme/styleUtils';
-import { UserMenu } from './UserMenu';
-import { getColor, getSpacing } from '../../../theme/styleUtils';
+import { getColor, getSpacing } from '../../../../theme/styleUtils';
+import { UserMenu } from '../UserMenu';
 
 interface UserInfoProps {
   hideUserName?: boolean;

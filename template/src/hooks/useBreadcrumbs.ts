@@ -10,7 +10,9 @@ export type BreadcrumbItem = {
 const useBreadcrumbs = () => {
   const location = useLocation();
   const user = useSelectedUserSelector();
-  const breadcrumbPaths = location.pathname.split('/').filter((path) => path);
+  const breadcrumbPaths = location.pathname
+    .split('/')
+    .filter((path) => path) as Paths[];
   const breadcrumbUrls = breadcrumbPaths.reduce<Paths[]>(
     (prev, curr) => [...prev, `${prev.join('/')}/${curr}`] as Paths[],
     []
@@ -23,13 +25,13 @@ const useBreadcrumbs = () => {
     },
   ];
 
-  breadcrumbUrls.forEach((path, idx) =>
+  breadcrumbPaths.forEach((path, idx) =>
     breadcrumbItems.push({
       to: breadcrumbUrls[idx],
       label:
         user?.login?.uuid === path
           ? `${user.name.first} ${user.name.last}`
-          : getPathLabel(path),
+          : getPathLabel(`/${path}` as Paths),
     })
   );
 

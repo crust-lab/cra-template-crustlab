@@ -1,55 +1,73 @@
-import React from 'react';
-import { Footer } from 'antd/lib/layout/layout';
-import { Outlet } from 'react-router-dom';
-import styled from 'styled-components';
-import logo from '../assets/logo-crustlab.svg';
-import Avatar from '../components/avatar/Avatar';
-import { PageContainer, StyledContent } from '../components/common';
-import Navbar from '../components/navbar/Navbar';
-import { getColor, getSpacing } from '../theme/styleUtils';
-import { MenuItemType } from './PageContainer';
+import React, { ReactElement, useMemo } from 'react';
+import {
+  BarChartOutlined,
+  DashboardOutlined,
+  HomeOutlined,
+  UnorderedListOutlined,
+  UsergroupDeleteOutlined,
+} from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from 'styled-components';
+import useWindowSize from '../../hooks/useWindowSize';
+import { getPathLabel, Paths } from '../../router/paths';
+import DesktopMain from './Main.desktop';
+import MobileMain from './Main.mobile';
 
-interface PageWithNavBarProps {
-  menuItems: MenuItemType[];
-}
+export type MenuItemType = {
+  onClick: () => void;
+  key: string;
+  label: string;
+  icon: ReactElement;
+};
 
-const PageWithNavBar = ({ menuItems }: PageWithNavBarProps) => {
-  return (
-    <PageContainer>
-      <StyledHeader>
-        <Logo src={logo} />
-        <Avatar />
-      </StyledHeader>
-      <StyledContent>
-        <Outlet />
-      </StyledContent>
-      <StyledFooter>
-        <Navbar menuItems={menuItems} />
-      </StyledFooter>
-    </PageContainer>
+const PageContainer = () => {
+  const { i18n } = useTranslation();
+  const { width } = useWindowSize();
+  const history = useNavigate();
+  const theme = useTheme();
+
+  const menuItems: MenuItemType[] = useMemo(
+    () => [
+      {
+        onClick: () => history(Paths.HOME),
+        key: Paths.HOME,
+        label: getPathLabel(Paths.HOME),
+        icon: <HomeOutlined />,
+      },
+      {
+        onClick: () => history(Paths.USERS),
+        key: Paths.USERS,
+        label: getPathLabel(Paths.USERS),
+        icon: <UsergroupDeleteOutlined />,
+      },
+      {
+        onClick: () => history(Paths.DASHBOARD),
+        key: Paths.DASHBOARD,
+        label: getPathLabel(Paths.DASHBOARD),
+        icon: <DashboardOutlined />,
+      },
+      {
+        onClick: () => history(Paths.OVERVIEW),
+        key: Paths.OVERVIEW,
+        label: getPathLabel(Paths.OVERVIEW),
+        icon: <BarChartOutlined />,
+      },
+      {
+        onClick: () => history(Paths.TASKS),
+        key: Paths.TASKS,
+        label: getPathLabel(Paths.TASKS),
+        icon: <UnorderedListOutlined />,
+      },
+    ],
+    [i18n.language]
+  );
+
+  return width > theme.breakpoints.md ? (
+    <DesktopMain menuItems={menuItems} />
+  ) : (
+    <MobileMain menuItems={menuItems} />
   );
 };
 
-const Logo = styled.img`
-  height: ${getSpacing('spacing32')}px;
-`;
-
-const StyledHeader = styled.div`
-  background: ${getColor('primaryBackground')};
-  padding: ${getSpacing('spacing24')}px ${getSpacing('spacing24')}px
-    ${getSpacing('spacing8')}px ${getSpacing('spacing24')}px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const StyledFooter = styled(Footer)`
-  padding: ${getSpacing('spacing8')}px ${getSpacing('spacing24')}px 0
-    ${getSpacing('spacing24')}px;
-  background: ${getColor('primaryBackground')};
-  position: sticky;
-  z-index: 1;
-  bottom: 0;
-  width: 100%;
-`;
-
-export default PageWithNavBar;
+export default PageContainer;

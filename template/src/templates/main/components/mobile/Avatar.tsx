@@ -2,8 +2,8 @@ import React from 'react';
 import { Avatar as AvatarIcon } from 'antd';
 import { Dropdown } from 'antd';
 import styled from 'styled-components';
-import { getColor } from '../../theme/styleUtils';
-import { UserMenu } from '../sideMenu/UserMenu';
+import UserMenu from '..';
+import { getColor } from '../../../../theme/styleUtils';
 
 const Avatar = () => {
   return (

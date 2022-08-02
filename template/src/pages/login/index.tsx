@@ -13,8 +13,8 @@ const LoginPage = () => {
 
   return (
     <Container>
-      <img src={logo} alt={t('logo.alt')} />
-      <LoginTitle>{t('loginPage.title')}</LoginTitle>
+      <img src={logo} alt={t('pages.loginPage.alt')} />
+      <LoginTitle>{t('pages.loginPage.title')}</LoginTitle>
       <LoginForm />
     </Container>
   );

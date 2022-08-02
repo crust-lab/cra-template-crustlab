@@ -28,16 +28,16 @@ const UserPage = () => {
   const { t } = useTranslation();
 
   const userInfo: UserInfoType[] = [
-    { label: t('userPage.firstname'), value: first },
-    { label: t('userPage.lastname'), value: last },
-    { label: t('userPage.phoneNumber'), value: phone },
-    { label: t('userPage.email'), value: email },
+    { label: t('pages.userPage.firstname'), value: first },
+    { label: t('pages.userPage.lastname'), value: last },
+    { label: t('pages.userPage.phoneNumber'), value: phone },
+    { label: t('pages.userPage.email'), value: email },
     {
-      label: t('userPage.address'),
+      label: t('pages.userPage.address'),
       value: `${name} ${number}, ${postcode} ${city}`,
     },
-    { label: t('userPage.country'), value: country },
-    { label: t('userPage.state'), value: state },
+    { label: t('pages.userPage.country'), value: country },
+    { label: t('pages.userPage.state'), value: state },
   ];
 
   return (

@@ -24,7 +24,7 @@ const LanguageSwitch = ({ defaultLangVal, languageSwitchOptions }: Props) => {
 
   return (
     <LanguageSwitchContainer>
-      <StyledText>{t('languageChange.language')}:</StyledText>
+      <StyledText>{t('components.languageSwitcher.language')}:</StyledText>
       <Select
         test-id="language-change-button"
         defaultValue={defaultLangVal}

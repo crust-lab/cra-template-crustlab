@@ -3,7 +3,7 @@ import { Button, Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { useLoginForm } from '../../../forms/loginForm/useLoginForm';
+import { useLoginForm } from '../../../forms/login/useLoginForm';
 import {
   getColor,
   getMediaQueryBreakpoint,
@@ -29,7 +29,7 @@ const LoginForm = () => {
         render={({ field: { onChange, value } }) => (
           <>
             <InputWrapper
-              placeholder={t('loginPage.emailLabel')}
+              placeholder={t('pages.loginPage.components.form.emailLabel')}
               status={(errors?.email || error) && 'error'}
               onChange={onChange}
               value={value}
@@ -46,7 +46,7 @@ const LoginForm = () => {
         render={({ field: { onChange, value } }) => (
           <>
             <PasswordWrapper
-              placeholder={t('loginPage.passwordLabel')}
+              placeholder={t('pages.loginPage.components.form.passwordLabel')}
               status={(errors?.password || error) && 'error'}
               type="password"
               onChange={onChange}
@@ -59,10 +59,12 @@ const LoginForm = () => {
         )}
       />
       {error && (
-        <ErrorMessage>{t('validation.incorrectEmailOrPassword')}</ErrorMessage>
+        <ErrorMessage>
+          {t('pages.loginPage.components.form.errors.incorrectEmailOrPassword')}
+        </ErrorMessage>
       )}
       <StyledButton loading={isLoading} type="primary" htmlType="submit">
-        {t('loginPage.submit')}
+        {t('pages.loginPage.components.form.submit')}
       </StyledButton>
     </Form>
   );

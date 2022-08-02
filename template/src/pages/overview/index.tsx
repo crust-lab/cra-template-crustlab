@@ -5,7 +5,7 @@ import { getColor } from '../../theme/styleUtils';
 
 const OverviewPage = () => {
   const { t } = useTranslation();
-  return <Header>{t('overviewPage.title')}</Header>;
+  return <Header>{t('pages.overviewPage.title')}</Header>;
 };
 
 const Header = styled.div`
