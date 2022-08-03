@@ -3,7 +3,7 @@ import { Footer } from 'antd/lib/layout/layout';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import { MenuItemType } from '.';
-import logo from '../../assets/logo-crustlab.svg';
+import logo from '../../assets/images/logo-crustlab.svg';
 import { StyledContent, PageContainer } from '../../components';
 import { getColor, getSpacing } from '../../theme/styleUtils';
 import { Avatar, Navbar } from './components';

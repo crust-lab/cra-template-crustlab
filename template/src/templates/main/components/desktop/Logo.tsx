@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import logo from '../../../../assets/logo.png';
-import logoTitle from '../../../../assets/logo.svg';
+import logo from '../../../../assets/images/logo.png';
+import logoTitle from '../../../../assets/images/logo.svg';
 import { getColor, getSpacing } from '../../../../theme/styleUtils';
 
 interface LogoProps {
