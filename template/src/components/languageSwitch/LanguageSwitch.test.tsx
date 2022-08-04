@@ -1,7 +1,7 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
 import LanguageSwitch from '.';
 import { useLanguage } from '../../hooks';
+import { fireEvent, render, screen } from '../../tests/testUtils';
 
 const LanguageSwitchMock = () => {
   const { defaultLangVal, languageSwitchOptions } = useLanguage();
