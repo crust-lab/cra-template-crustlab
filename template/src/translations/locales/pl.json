@@ -37,7 +37,9 @@
     "users": "Użytkownicy",
     "dashboard": "Panel",
     "overview": "Przegląd",
-    "tasks": "Zadania"
+    "tasks": "Zadania",
+    "protected": "",
+    "wildcard": ""
   },
   "usersPage": {
     "pictureLabel": "Zdjęcie",

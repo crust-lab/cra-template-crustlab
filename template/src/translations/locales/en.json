@@ -7,7 +7,7 @@
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "rememberMeLabel": "RememberMe",
-    "submit": "Sing in"
+    "submit": "Sign in"
   },
   "protectedPage": {
     "title": "Protected Page!"
@@ -37,7 +37,9 @@
     "users": "Users",
     "dashboard": "Dashboard",
     "overview": "Overview",
-    "tasks": "Tasks"
+    "tasks": "Tasks",
+    "protected": "",
+    "wildcard": ""
   },
   "usersPage": {
     "pictureLabel": "Picture",

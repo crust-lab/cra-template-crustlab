@@ -1,21 +1,18 @@
 import React from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
-import { useAppSelector } from '../hooks/reduxHooks';
-import { routerAuthPaths } from '../router/routerPaths';
-import { selectIsAuthorised } from '../store/reducers/auth/authSlice';
+import { useIsAuthorizedSelector } from '../store/auth/slice';
+import { AuthPaths } from './paths';
 
 type RequireAuthProps = {
   element: JSX.Element;
 };
 
 const AuthGuard = ({ element }: RequireAuthProps) => {
-  const isAuthorised = useAppSelector(selectIsAuthorised);
+  const isAuthorized = useIsAuthorizedSelector();
   const location = useLocation();
 
-  if (!isAuthorised) {
-    return (
-      <Navigate to={routerAuthPaths.login} state={{ from: location }} replace />
-    );
+  if (!isAuthorized) {
+    return <Navigate to={AuthPaths.LOGIN} state={{ from: location }} replace />;
   }
 
   return element;
