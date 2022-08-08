@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from 'antd/lib/layout/layout';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { MenuItemType } from '.';
+import { MenuPropsType } from '.';
 import { Breadcrumbs, ThemeSwitch } from '../../components';
 import { PageContainer, StyledContent } from '../../components/common';
 import LanguageSwitch from '../../components/languageSwitch';
@@ -10,11 +10,7 @@ import { useLanguage } from '../../hooks';
 import { getColor } from '../../theme/styleUtils';
 import { SideMenu } from './components';
 
-interface MainProps {
-  menuItems: MenuItemType[];
-}
-
-const Main = ({ menuItems }: MainProps) => {
+const Main = ({ menuItems }: MenuPropsType) => {
   const { defaultLangVal, languageSwitchOptions } = useLanguage();
 
   return (

@@ -21,6 +21,10 @@ export type MenuItemType = {
   icon: ReactElement;
 };
 
+export type MenuPropsType = {
+  menuItems: MenuItemType[];
+};
+
 const PageContainer = () => {
   const { i18n } = useTranslation();
   const { width } = useWindowSize();

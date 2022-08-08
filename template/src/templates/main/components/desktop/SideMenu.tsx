@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { MenuItemType } from '../..';
+import { MenuPropsType } from '../..';
 import { getSpacing } from '../../../../theme/styleUtils';
 import Logo from './Logo';
 import UserInfo from './UserInfo';
 
 const { Sider } = Layout;
 
-interface SideMenuProps {
-  menuItems: MenuItemType[];
-}
-
-const SideMenu = ({ menuItems }: SideMenuProps) => {
+const SideMenu = ({ menuItems }: MenuPropsType) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
 

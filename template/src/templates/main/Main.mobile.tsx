@@ -2,17 +2,13 @@ import React from 'react';
 import { Footer } from 'antd/lib/layout/layout';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import { MenuItemType } from '.';
+import { MenuPropsType } from '.';
 import logo from '../../assets/images/logo-crustlab.svg';
 import { StyledContent, PageContainer } from '../../components';
 import { getColor, getSpacing } from '../../theme/styleUtils';
 import { Avatar, Navbar } from './components';
 
-interface MainProps {
-  menuItems: MenuItemType[];
-}
-
-const Main = ({ menuItems }: MainProps) => {
+const Main = ({ menuItems }: MenuPropsType) => {
   return (
     <PageContainer>
       <StyledHeader>

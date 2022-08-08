@@ -48,16 +48,16 @@ const GlobalStyle = createGlobalStyle`
 
     .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
         background-color: ${getColor('primaryHover')} !important;
-        color: ${getColor('text01')} !important;;
+        color: ${getColor('text01')} !important;
         .ant-menu-title-content {
-            font-weight: 900 !important;;
+            font-weight: 900 !important;
         }
     }
 
     .ant-menu:not(.ant-menu-inline-collapsed):not(.ant-menu-horizontal) .ant-menu-item-selected   {
         .ant-menu-item-icon > svg {
-            height: ${getSpacing('spacing24')}px !important;;
-            width: ${getSpacing('spacing24')}px !important;;
+            height: ${getSpacing('spacing24')}px !important;
+            width: ${getSpacing('spacing24')}px !important;
         }
     }
 

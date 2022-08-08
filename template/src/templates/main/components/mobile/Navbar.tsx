@@ -1,13 +1,9 @@
 import React from 'react';
 import { TabBar } from 'antd-mobile';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { MenuItemType } from '../..';
+import { MenuPropsType } from '../..';
 
-interface NavbarProps {
-  menuItems: MenuItemType[];
-}
-
-const Navbar = ({ menuItems }: NavbarProps) => {
+const Navbar = ({ menuItems }: MenuPropsType) => {
   const { pathname } = useLocation();
   const history = useNavigate();
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Input } from 'antd';
 import { Controller } from 'react-hook-form';
 import { useTranslation, withTranslation } from 'react-i18next';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useLoginForm } from '../../../forms/login/useLoginForm';
 import {
   getColor,
@@ -70,35 +70,29 @@ const LoginForm = () => {
   );
 };
 
-const StyledButton = styled(Button)`
+const baseSizes = css`
   @media ${getMediaQueryBreakpoint('xs')} {
     width: 60%;
   }
   @media ${getMediaQueryBreakpoint('md')} {
     width: 400px;
   }
+`;
+
+const StyledButton = styled(Button)`
+  ${baseSizes}
   margin-top: ${getSpacing('spacing8')}px;
   border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const InputWrapper = styled(Input)`
-  @media ${getMediaQueryBreakpoint('xs')} {
-    max-width: 60%;
-  }
-  @media ${getMediaQueryBreakpoint('md')} {
-    max-width: 400px;
-  }
+  ${baseSizes}
   margin: ${getSpacing('spacing8')}px 0;
   border-radius: ${getSpacing('spacing24')}px;
 `;
 
 const PasswordWrapper = styled(Input.Password)`
-  @media ${getMediaQueryBreakpoint('xs')} {
-    width: 60%;
-  }
-  @media ${getMediaQueryBreakpoint('md')} {
-    width: 400px;
-  }
+  ${baseSizes}
   margin: ${getSpacing('spacing8')}px 0;
   border-radius: ${getSpacing('spacing24')}px;
 `;
