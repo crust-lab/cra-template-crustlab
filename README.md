@@ -33,7 +33,7 @@ cra-template-crustlab
 │   │ App.tsx
 │   │ App.css
 │   └───assets
-│   	└───images - all images must be placed here
+│       └───images - all images must be placed here
 |	└───components - reusable common components go here
 |	└───contexts - all context providers go here
 |       └───ThemeContext.tsx
