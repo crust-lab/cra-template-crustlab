@@ -27,47 +27,47 @@ Remember that the main idea of the boilerplate app is to deliver the easiest to 
 
 ## Folder structure
 
-```yml
+```
 cra-template-crustlab
 └───src
 │   │ App.tsx
 │   │ App.css
-|	└───components - reusable common components go here
 │   └───assets
 │       └───images - all images must be placed here
-|	└───contexts - all context providers go here
-|       └───ThemeContext.tsx
-|   └───forms - all files related to form validation go here
-|       └───login
-|           └───useLoginForm.ts
-|	└───helpers - reusable common utility functions/libs go here
-|	└───hooks - all hooks must be placed here
-|	└───pages - this directory holds files that contain pages components
-|       └───home
-|           └───index.tsx
-|       └───login
-|           └───index.tsx
-|	└───router - all components/functions related to react router go here
-|	└───services - reusable common services (i.e. httpService) go here
-|	└───store - this directory contains redux store and slices definitions
-|       └───auth
-|           └───slice.ts
-|           └───types.ts
-|       └───index.tsx
-|	└───templates - this directory holds layout files for app
-|       └───main
-|           └───components
-|               └───Navbar.tsx
-|               └───Footer.tsx
-|           └───Main.desktop.tsx
-|           └───Main.mobile.tsx
-|           └───index.tsx
-|	└───tests - all tests go here
-|	└───theme - this directory holds theme files which contains colors which define overall look of the app
-|	└───translations - this directory contains translations json files
-|       └───locales
-|           └───en.json
-|           └───pl.json
+│	└───components - reusable common components go here
+│	└───contexts - all context providers go here
+│       └───ThemeContext.tsx
+│   └───forms - all files related to form validation go here
+│       └───login
+│           └───useLoginForm.ts
+│	└───helpers - reusable common utility functions/libs go here
+│	└───hooks - all hooks must be placed here
+│	└───pages - this directory holds files that contain pages components
+│       └───home
+│           └───index.tsx
+│       └───login
+│           └───index.tsx
+│	└───router - all components/functions related to react router go here
+│	└───services - reusable common services (i.e. httpService) go here
+│	└───store - this directory contains redux store and slices definitions
+│       └───auth
+│           └───slice.ts
+│           └───types.ts
+│       └───index.tsx
+│	└───templates - this directory holds layout files for app
+│       └───main
+│           └───components
+│               └───Navbar.tsx
+│               └───Footer.tsx
+│           └───Main.desktop.tsx
+│           └───Main.mobile.tsx
+│           └───index.tsx
+│	└───tests - all tests go here
+│	└───theme - this directory holds theme files which contains colors which define overall look of the app
+│	└───translations - this directory contains translations json files
+│       └───locales
+│           └───en.json
+│           └───pl.json
 ...other files
 ```
 
