@@ -27,7 +27,7 @@ Remember that the main idea of the boilerplate app is to deliver the easiest to 
 
 ## Folder structure
 
-```
+```yml
 cra-template-crustlab
 └───src
 │   │ App.tsx
