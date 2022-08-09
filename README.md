@@ -33,28 +33,28 @@ cra-template-crustlab
 │   │   App.tsx
 │   │   App.css
 │   └───assets
-│   	└───images  all images must be placed here
-|	└───components	reusable common components go here
-|	└───contexts  all context providers go here
+│   	  └───images  all images must be placed here
+|	  └───components	reusable common components go here
+|	  └───contexts  all context providers go here
 |       └─── ThemeContext.tsx
 |   └───forms   all files related to form validation go here
 |        └───login
 |            └───useLoginForm.ts
-|	└───helpers reusable common utility functions/libs go here
-|	└───hooks   all hooks must be placed here
-|	└───pages   this directory holds files that contain pages components
+|	  └───helpers reusable common utility functions/libs go here
+|	  └───hooks   all hooks must be placed here
+|	  └───pages   this directory holds files that contain pages components
 |       └───home
 |           └───index.tsx
 |       └───login
 |           └───index.tsx
-|	└───router   all components/functions related to react router go here
-|	└───services	reusable common services (i.e. httpService) go here
-|	└───store   this directory contains redux store and slices definitions
+|	  └───router   all components/functions related to react router go here
+|	  └───services	reusable common services (i.e. httpService) go here
+|	  └───store   this directory contains redux store and slices definitions
 |       └───auth
 |           └───slice.ts
 |           └───types.ts
 |       └───index.tsx
-|	└───templates	this directory holds layout files for app
+|	  └───templates	this directory holds layout files for app
 |       └───main
 |           └───components
 |               └───Navbar.tsx
@@ -62,9 +62,9 @@ cra-template-crustlab
 |           └───Main.desktop.tsx
 |           └───Main.mobile.tsx
 |           └───index.tsx
-|	└───tests	all tests go here
-|	└───theme	this directory holds theme files which contains colors which define overall look of the app
-|	└───translations	this directory contains translations json files
+|	  └───tests	all tests go here
+|	  └───theme	this directory holds theme files which contains colors which define overall look of the app
+|	  └───translations	this directory contains translations json files
 |       └───locales
 |           └───en.json
 |           └───pl.json
