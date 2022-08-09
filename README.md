@@ -32,9 +32,9 @@ cra-template-crustlab
 └───src
 │   │ App.tsx
 │   │ App.css
+|	└───components - reusable common components go here
 │   └───assets
 │       └───images - all images must be placed here
-|	└───components - reusable common components go here
 |	└───contexts - all context providers go here
 |       └───ThemeContext.tsx
 |   └───forms - all files related to form validation go here
