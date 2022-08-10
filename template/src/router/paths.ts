@@ -8,7 +8,6 @@ export enum Paths {
   DASHBOARD = '/dashboard',
   OVERVIEW = '/overview',
   TASKS = '/tasks',
-  PROTECTED = '/protected',
   WILDCARD = '*',
 }
 
@@ -18,13 +17,12 @@ export enum AuthPaths {
 
 export const getPathLabel = (path: Paths) => {
   const pathToLabelMap = {
-    [Paths.HOME]: t('routerPathsLabel.home'),
-    [Paths.USERS]: t('routerPathsLabel.users'),
-    [Paths.DASHBOARD]: t('routerPathsLabel.dashboard'),
-    [Paths.OVERVIEW]: t('routerPathsLabel.overview'),
-    [Paths.TASKS]: t('routerPathsLabel.tasks'),
-    [Paths.PROTECTED]: t('routerPathsLabel.protected'),
-    [Paths.WILDCARD]: t('routerPathsLabel.wildcard'),
+    [Paths.HOME]: t('router.paths.home'),
+    [Paths.USERS]: t('router.paths.users'),
+    [Paths.DASHBOARD]: t('router.paths.dashboard'),
+    [Paths.OVERVIEW]: t('router.paths.overview'),
+    [Paths.TASKS]: t('router.paths.tasks'),
+    [Paths.WILDCARD]: t('router.paths.wildcard'),
   };
   return pathToLabelMap[path];
 };

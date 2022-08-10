@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from 'antd';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import logo from '../../assets/logo-crustlab.svg';
+import logo from '../../assets/images/logo-crustlab.svg';
 import { getSpacing } from '../../theme/styleUtils';
 import { LoginForm } from './components';
 
@@ -13,8 +13,8 @@ const LoginPage = () => {
 
   return (
     <Container>
-      <img src={logo} alt={t('logo.alt')} />
-      <LoginTitle>{t('loginPage.title')}</LoginTitle>
+      <img src={logo} alt={t('pages.loginPage.alt')} />
+      <LoginTitle>{t('pages.loginPage.title')}</LoginTitle>
       <LoginForm />
     </Container>
   );

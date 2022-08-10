@@ -1,35 +1,13 @@
 import React from 'react';
 import { MoreOutlined } from '@ant-design/icons';
-import { Avatar as AvatarIcon, Dropdown, Menu } from 'antd';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { Avatar as AvatarIcon, Dropdown } from 'antd';
 import styled from 'styled-components';
-import { logout } from '../../../store/auth/slice';
-import { useAppDispatch } from '../../../store/hooks';
-import { getColor, getSpacing } from '../../../theme/styleUtils';
+import { getColor, getSpacing } from '../../../../theme/styleUtils';
+import { UserMenu } from '../UserMenu';
 
 interface UserInfoProps {
   hideUserName?: boolean;
 }
-
-const UserMenu = () => {
-  const history = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const handleLogout = () => {
-    dispatch(logout());
-    history('/auth/login');
-  };
-  const { t } = useTranslation();
-
-  return (
-    <Menu>
-      <Menu.Item key="" onClick={handleLogout}>
-        {t('auth.logout')}
-      </Menu.Item>
-    </Menu>
-  );
-};
 
 const UserInfo = ({ hideUserName }: UserInfoProps) => {
   return (

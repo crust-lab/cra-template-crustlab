@@ -9,7 +9,7 @@ import { useGetUsersQuery } from '../../services/usersApi';
 import { UserLocation, User } from '../../services/usersApi/types';
 import { useAppDispatch } from '../../store/hooks';
 import { setSelectedUser } from '../../store/users/slice';
-import { getSpacing } from '../../theme/styleUtils';
+import { getMediaQueryBreakpoint, getSpacing } from '../../theme/styleUtils';
 
 const UsersPage = () => {
   const { t } = useTranslation();
@@ -31,40 +31,39 @@ const UsersPage = () => {
 
   const columns: ColumnsType<User> = [
     {
-      title: t('usersPage.pictureLabel'),
-      align: 'center' as const,
+      title: t('pages.usersPage.pictureLabel'),
+      key: 'users-column-picture',
       dataIndex: 'picture',
+      align: 'center' as const,
       width: 100,
-      key: 'picture',
       render: ({ thumbnail }) => <Avatar src={thumbnail} />,
     },
     {
-      title: t('usersPage.nameLabel'),
+      title: t('pages.usersPage.nameLabel'),
+      key: 'users-column-name',
       dataIndex: 'name',
-      width: 300,
-      key: 'name',
       render: ({ first, last, title }) => `${title} ${first} ${last}`,
       sorter: ({ name: a }, { name: b }) => a.first.localeCompare(b.first),
       sortOrder: orderInfo.columnKey === 'name' ? orderInfo.order : null,
     },
     {
-      title: t('usersPage.emailLabel'),
+      title: t('pages.usersPage.emailLabel'),
+      key: 'users-column-email',
       dataIndex: 'email',
-      key: 'email',
       sorter: ({ email: a }, { email: b }) => a.localeCompare(b),
       sortOrder: orderInfo.columnKey === 'email' ? orderInfo.order : null,
     },
     {
-      title: t('usersPage.phoneLabel'),
+      title: t('pages.usersPage.phoneLabel'),
+      key: 'users-column-phone',
       dataIndex: 'phone',
-      key: 'phone',
       sorter: ({ phone: a }, { phone: b }) => a.localeCompare(b),
       sortOrder: orderInfo.columnKey === 'phone' ? orderInfo.order : null,
     },
     {
-      title: t('usersPage.countryLabel'),
+      title: t('pages.usersPage.countryLabel'),
+      key: 'users-column-country',
       dataIndex: 'location',
-      key: 'country',
       render: ({ country }: UserLocation) => country,
       sorter: ({ location: { country: a } }, { location: { country: b } }) =>
         a.localeCompare(b),
@@ -77,7 +76,10 @@ const UsersPage = () => {
       loading={isFetching}
       columns={columns}
       onChange={onChange}
-      dataSource={data?.results}
+      dataSource={data?.results.map((item) => ({
+        ...item,
+        key: item.login.uuid,
+      }))}
       pagination={{
         position: ['bottomCenter'],
         total: 200,
@@ -94,14 +96,16 @@ const UsersPage = () => {
       })}
       scroll={{
         y: '70vh',
-        x: '30vw',
+        x: 'max-content',
       }}
     />
   );
 };
 
 const StyledTable: typeof Table = styled(Table)`
-  margin-top: ${getSpacing('spacing32')}px;
+  @media ${getMediaQueryBreakpoint('md')} {
+    margin-top: ${getSpacing('spacing32')}px;
+  }
   border-radius: ${getSpacing('spacing32')}px;
 `;
 

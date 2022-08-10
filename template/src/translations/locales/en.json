@@ -1,79 +1,86 @@
 {
-  "rickyPage": {
-    "title": "Rick and Morty Page!"
+  "components": {
+    "languageSwitcher": {
+      "language": "Language",
+      "eng": "ENG",
+      "pl": "PL"
+    },
+    "themeSwitch": {
+      "lightModeLabel": "Light mode",
+      "darkModeLabel": "Dark mode"
+    }
   },
-  "loginPage": {
-    "title": "Sign in",
-    "emailLabel": "Email",
-    "passwordLabel": "Password",
-    "rememberMeLabel": "RememberMe",
-    "submit": "Sign in"
+  "pages": {
+    "loginPage": {
+      "alt": "Crustlab logo",
+      "title": "Sign in",
+      "components": {
+        "form": {
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "rememberMeLabel": "RememberMe",
+          "submit": "Sign in",
+          "errors": {
+            "incorrectEmailOrPassword": "Incorrect email or password"
+          }
+        }
+      }
+    },
+    "usersPage": {
+      "pictureLabel": "Picture",
+      "nameLabel": "Name and surname",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "countryLabel": "Country"
+    },
+    "userPage": {
+      "firstname": "Firstname: ",
+      "lastname": "Lastname: ",
+      "phoneNumber": "Phone number: ",
+      "email": "Email: ",
+      "address": "Adress: ",
+      "country": "Country: ",
+      "state": "State: "
+    },
+    "homePage": {
+      "title": "Home page"
+    },
+    "dashboardPage": {
+      "title": "Dashboard page"
+    },
+    "tasksPage": {
+      "title": "Tasks page"
+    },
+    "overviewPage": {
+      "title": "Overview page"
+    }
   },
-  "protectedPage": {
-    "title": "Protected Page!"
+  "templates": {
+    "main": {
+      "components": {
+        "desktop": {
+          "logo": {
+            "alt": "Crustlab logo"
+          }
+        },
+        "userMenu": {
+          "logout": "Logout"
+        }
+      }
+    }
   },
-  "navigation": {
-    "home": "Home",
-    "rickAndMorty": "Rick and Morty",
-    "protected": "Protected"
+  "router": {
+    "paths": {
+      "home": "Home",
+      "users": "Users",
+      "dashboard": "Dashboard",
+      "overview": "Overview",
+      "tasks": "Tasks",
+      "wildcard": "*"
+    }
   },
-  "languageChange": {
-    "language": "Language",
-    "eng": "ENG",
-    "pl": "PL"
-  },
-  "auth": {
-    "isUserAuthorised": "User authorised",
-    "goToLogin": "Go to Login",
-    "logout": "Logout"
-  },
-  "validation": {
+  "globalErrors": {
     "required": "This field is required",
-    "invalidEmail": "This email address is invalid",
-    "incorrectEmailOrPassword": "Incorrect email or password"
-  },
-  "routerPathsLabel": {
-    "home": "Home",
-    "users": "Users",
-    "dashboard": "Dashboard",
-    "overview": "Overview",
-    "tasks": "Tasks",
-    "protected": "",
-    "wildcard": ""
-  },
-  "usersPage": {
-    "pictureLabel": "Picture",
-    "nameLabel": "Name and surname",
-    "emailLabel": "Email",
-    "phoneLabel": "Phone",
-    "countryLabel": "Country"
-  },
-  "logo": {
-    "alt": "Crustlab logo"
-  },
-  "userPage": {
-    "firstname": "Firstname: ",
-    "lastname": "Lastname: ",
-    "phoneNumber": "Phone number: ",
-    "email": "Email: ",
-    "address": "Adress: ",
-    "country": "Country: ",
-    "state": "State: "
-  },
-  "themeChange": {
-    "lightModeLabel": "Light mode",
-    "darkModeLabel": "Dark mode"
-  },
-  "dashboardPage": {
-    "title": "Dashboard page"
-  },
-  "tasksPage": {
-    "title": "Tasks page"
-  },
-  "overviewPage": {
-    "title": "Overview page"
-  },
-  "homePage": {
-    "title": "Home page"
+    "invalidEmail": "This email address is invalid"
   }
 }

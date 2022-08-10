@@ -1,67 +1,77 @@
-import React from 'react';
+import React, { ReactElement, useMemo } from 'react';
+import {
+  BarChartOutlined,
+  DashboardOutlined,
+  HomeOutlined,
+  UnorderedListOutlined,
+  UsergroupDeleteOutlined,
+} from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { Outlet } from 'react-router-dom';
-import styled from 'styled-components';
-import { Breadcrumbs, ThemeSwitch } from '../../components';
-import LanguageSwitch, {
-  LanguageSwitchOption,
-} from '../../components/languageSwitch';
-import { getColor, getSpacing } from '../../theme/styleUtils';
-import { DEFAULT_LANGUAGE, LanguageOptions } from '../../translations/i18n';
-import { SideMenu } from './components';
+import { useNavigate } from 'react-router-dom';
+import { useTheme } from 'styled-components';
+import useWindowSize from '../../hooks/useWindowSize';
+import { getPathLabel, Paths } from '../../router/paths';
+import DesktopMain from './Main.desktop';
+import MobileMain from './Main.mobile';
 
-const PageWithNavBar = () => {
+export type MenuItemType = {
+  onClick: () => void;
+  key: string;
+  label: string;
+  icon: ReactElement;
+};
+
+export type MenuPropsType = {
+  menuItems: MenuItemType[];
+};
+
+const PageContainer = () => {
   const { i18n } = useTranslation();
-  const defaultLangVal = (i18n.language as LanguageOptions) || DEFAULT_LANGUAGE;
+  const { width } = useWindowSize();
+  const history = useNavigate();
+  const theme = useTheme();
 
-  const languageSwitchOptions: LanguageSwitchOption[] = [
-    {
-      value: LanguageOptions.EN,
-      labelTranslation: 'languageChange.eng',
-    },
-    {
-      value: LanguageOptions.PL,
-      labelTranslation: 'languageChange.pl',
-    },
-  ];
+  const menuItems: MenuItemType[] = useMemo(
+    () => [
+      {
+        onClick: () => history(Paths.HOME),
+        key: Paths.HOME,
+        label: getPathLabel(Paths.HOME),
+        icon: <HomeOutlined />,
+      },
+      {
+        onClick: () => history(Paths.USERS),
+        key: Paths.USERS,
+        label: getPathLabel(Paths.USERS),
+        icon: <UsergroupDeleteOutlined />,
+      },
+      {
+        onClick: () => history(Paths.DASHBOARD),
+        key: Paths.DASHBOARD,
+        label: getPathLabel(Paths.DASHBOARD),
+        icon: <DashboardOutlined />,
+      },
+      {
+        onClick: () => history(Paths.OVERVIEW),
+        key: Paths.OVERVIEW,
+        label: getPathLabel(Paths.OVERVIEW),
+        icon: <BarChartOutlined />,
+      },
+      {
+        onClick: () => history(Paths.TASKS),
+        key: Paths.TASKS,
+        label: getPathLabel(Paths.TASKS),
+        icon: <UnorderedListOutlined />,
+      },
+    ],
+    [i18n.language]
+  );
 
-  return (
-    <PageContainer>
-      <SideMenu />
-      <Content>
-        <Header>
-          <Breadcrumbs />
-          <LanguageSwitch
-            languageSwitchOptions={languageSwitchOptions}
-            defaultLangVal={defaultLangVal}
-          />
-          <ThemeSwitch />
-        </Header>
-        <Outlet />
-      </Content>
-    </PageContainer>
+  return width > theme.breakpoints.md ? (
+    <DesktopMain menuItems={menuItems} />
+  ) : (
+    <MobileMain menuItems={menuItems} />
   );
 };
 
-export const PageContainer = styled.div`
-  background-color: ${getColor('primaryBackground')};
-  min-height: 100vh;
-  display: flex;
-  width: 100%;
-`;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: ${getSpacing('spacing32')}px ${getSpacing('spacing24')}px;
-`;
-
-export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  border-bottom: 1px solid ${getColor('primaryAccent')};
-`;
-
-export default PageWithNavBar;
+export default PageContainer;

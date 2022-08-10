@@ -25,6 +25,52 @@ This package is a template that let's you generate an example boilerplate app wi
 
 Remember that the main idea of the boilerplate app is to deliver the easiest to understand example.
 
+## Folder structure
+
+<pre>
+cra-template-crustlab
+└───src
+│   │ App.tsx
+│   │ App.css
+│   └───assets
+│       └───images - all images must be placed here
+│   └───components - reusable common components go here
+│   └───contexts - all context providers go here
+│       └───ThemeContext.tsx
+│   └───forms - all files related to form validation go here
+│       └───login
+│           └───useLoginForm.ts
+│   └───helpers - reusable common utility functions/libs go here
+│   └───hooks - all hooks must be placed here
+│   └───pages - this directory holds files that contain pages components
+│       └───home
+│           └───index.tsx
+│       └───login
+│           └───index.tsx
+│   └───router - all components/functions related to react router go here
+│   └───services - reusable common services (i.e. httpService) go here
+│   └───store - this directory contains redux store and slices definitions
+│       └───auth
+│           └───slice.ts
+│           └───types.ts
+│       └───index.tsx
+│   └───templates - this directory holds layout files for app
+│       └───main
+│           └───components
+│               └───Navbar.tsx
+│               └───Footer.tsx
+│           └───Main.desktop.tsx
+│           └───Main.mobile.tsx
+│           └───index.tsx
+│   └───tests - all tests go here
+│   └───theme - this directory holds theme files which contains colors which define overall look of the app
+│   └───translations - this directory contains translations json files
+│       └───locales
+│           └───en.json
+│           └───pl.json
+...other files
+</pre>
+
 ## Internationalization
 
 The app is adjusted to multiple language versions thanks to React-i18next.
@@ -41,6 +87,18 @@ Above command creates **lang/en.json** file with english messages. Compare newly
 
 1. Create a new file e.g. **fr.json** in **lang** directory.
 2. Modify configure **i18n.ts** file, import new translation file and add to resources array.
+
+## Sentry
+
+Sentry is a developer-first error tracking and performance monitoring platform that helps developers see what actually matters, solve quicker, and learn continuously about their applications.
+Sentry configuration is done in index.tsx file. Sentry is run only in a production environment.
+In order to configure the sentry correctly, we need to define two env variables **REACT_APP_SENTRY_DSN** and **REACT_APP_SETNRY_AUTH_TOKEN** and put them in our **.env** configuration file.
+To create a new auth token (**REACT_APP_SETNRY_AUTH_TOKEN**), or simply copy an existing one, just open sentry.io in your browser and then go to **Settings > Account > API > Auth Tokens**.
+In order to correctly display the error stack trace, we need to upload the source map. To do this, we can use a previously prepared script sentryCreateRelease.js and run this npm command :
+
+> npm run release
+
+This command will build our codebase and then run **sentryCreateRelease.js** script.
 
 ## Testing
 

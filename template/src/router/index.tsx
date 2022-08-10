@@ -7,13 +7,13 @@ import OverviewPage from '../pages/overview';
 import TasksPage from '../pages/tasks';
 import UserPage from '../pages/user';
 import UsersPage from '../pages/users';
-import PageWithNavBar from '../templates/main';
+import MainTemplate from '../templates/main';
 import AuthGuard from './AuthGuard';
 import { AuthPaths, Paths } from './paths';
 
 const Router = () => (
   <Routes>
-    <Route path="/" element={<AuthGuard element={<PageWithNavBar />} />}>
+    <Route path="/" element={<AuthGuard element={<MainTemplate />} />}>
       <Route path={Paths.HOME} element={<HomePage />} />
       <Route path={Paths.USERS} element={<UsersPage />} />
       <Route path={`${Paths.USERS}/:id`} element={<UserPage />} />
