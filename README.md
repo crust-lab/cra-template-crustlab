@@ -1,6 +1,8 @@
 # cra-template-crustlab
 
-The official CrustLab template for Create React App based on cra-template-typescript
+The official CrustLab template for Create React App based on cra-template-typescript.
+Based on this template, a example FE app was created, link to this app [here](https://gitlab.com/crustlab/internal25/example-react-app/example-fe).
+After making any changes to this template, remember to update code of this [application](https://gitlab.com/crustlab/internal25/example-react-app/example-fe).
 
 ## Usage
 
