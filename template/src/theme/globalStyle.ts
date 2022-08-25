@@ -152,7 +152,6 @@ const GlobalStyle = createGlobalStyle`
 
     .ant-table-tbody>tr.ant-table-row:hover>td, .ant-table-tbody>tr>td.ant-table-cell-row-hover {
         background: ${getColor('primaryBackground')};
-        border-left: 1px solid ${getColor('secondaryBackground')}; 
     }
 
     .ant-table-column-sorter {
