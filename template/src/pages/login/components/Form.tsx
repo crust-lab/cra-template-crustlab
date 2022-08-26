@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Input } from 'antd';
-import { Controller } from 'react-hook-form';
+import { Button } from 'antd';
 import { useTranslation, withTranslation } from 'react-i18next';
 import styled, { css } from 'styled-components';
+import Input from '../../../components/inputs/Input';
 import { useLoginForm } from '../../../forms/login/useLoginForm';
 import {
   getColor,
@@ -23,40 +23,18 @@ const LoginForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Controller
+      <InputWrapper
+        control={control}
+        placeholder={t('pages.loginPage.components.form.emailLabel')}
         name="email"
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <>
-            <InputWrapper
-              placeholder={t('pages.loginPage.components.form.emailLabel')}
-              status={(errors?.email || error) && 'error'}
-              onChange={onChange}
-              value={value}
-            />
-            {errors?.email && (
-              <ErrorMessage>{errors?.email?.message}</ErrorMessage>
-            )}
-          </>
-        )}
+        status={(error || errors.email) && 'error'}
       />
-      <Controller
-        name="password"
+      <InputWrapper
         control={control}
-        render={({ field: { onChange, value } }) => (
-          <>
-            <PasswordWrapper
-              placeholder={t('pages.loginPage.components.form.passwordLabel')}
-              status={(errors?.password || error) && 'error'}
-              type="password"
-              onChange={onChange}
-              value={value}
-            />
-            {errors?.password && (
-              <ErrorMessage>{errors?.password?.message}</ErrorMessage>
-            )}
-          </>
-        )}
+        placeholder={t('pages.loginPage.components.form.passwordLabel')}
+        name="password"
+        type="password"
+        status={(error || errors.password) && 'error'}
       />
       {error && (
         <ErrorMessage>
@@ -86,16 +64,9 @@ const StyledButton = styled(Button)`
 `;
 
 const InputWrapper = styled(Input)`
-  ${baseSizes}
   margin: ${getSpacing('spacing8')}px 0;
   border-radius: ${getSpacing('spacing24')}px;
-`;
-
-const PasswordWrapper = styled(Input.Password)`
-  ${baseSizes}
-  margin: ${getSpacing('spacing8')}px 0;
-  border-radius: ${getSpacing('spacing24')}px;
-`;
+` as typeof Input;
 
 const Form = styled.form`
   @media ${getMediaQueryBreakpoint('xs')} {
